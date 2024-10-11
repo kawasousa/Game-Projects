@@ -1,0 +1,136 @@
+[gd_scene load_steps=4 format=3 uid="uid://buwo4i7mxxfv3"]
+
+[ext_resource type="Script" path="res://script/hud.gd" id="1_fmoib"]
+[ext_resource type="Texture2D" uid="uid://b2mm1qi1tj3sh" path="res://assets/life_icon.png" id="2_00x5p"]
+[ext_resource type="Texture2D" uid="uid://c3lrqlwc65vgy" path="res://assets/gun.png" id="2_k5cx3"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_fmoib")
+
+[node name="shoot" type="Node2D" parent="."]
+position = Vector2(508.129, 31.2599)
+
+[node name="shoot_rect" type="ColorRect" parent="shoot"]
+custom_minimum_size = Vector2(10, 24)
+offset_left = 40.0
+offset_top = 7.0
+offset_right = 40.0
+offset_bottom = 31.0
+color = Color(0.619608, 0.494118, 0.223529, 1)
+
+[node name="TextureRect" type="TextureRect" parent="shoot"]
+offset_left = -1.0
+offset_top = 10.0
+offset_right = 31.0
+offset_bottom = 33.0
+rotation = -0.349066
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_k5cx3")
+
+[node name="Line2D" type="Line2D" parent="shoot"]
+points = PackedVector2Array(39.871, 6.7401, 39.871, 30.7401, 139.871, 30.7401, 139.871, 6.7401, 129.871, 6.7401, 129.871, 30.7401, 129.871, 30.7401, 129.871, 6.7401, 119.871, 6.7401, 119.871, 30.7401, 119.871, 30.7401, 119.871, 6.7401, 109.871, 6.7401, 109.871, 30.7401, 109.871, 30.7401, 109.871, 6.7401, 99.871, 6.7401, 99.871, 30.7401, 99.871, 6.7401, 89.871, 6.7401, 89.871, 30.7401, 89.871, 6.7401, 79.871, 6.7401, 79.871, 30.7401, 79.871, 6.7401, 69.871, 6.7401, 69.871, 30.7401, 69.871, 6.7401, 59.871, 6.7401, 59.871, 30.7401, 59.871, 6.7401, 49.871, 6.7401, 49.871, 30.7401, 49.871, 6.7401, 39.871, 6.7401)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="invasion" type="Node2D" parent="."]
+position = Vector2(463, 594)
+
+[node name="invasion_rect" type="ColorRect" parent="invasion"]
+offset_left = 185.0
+offset_top = 3.0
+offset_right = 185.0
+offset_bottom = 23.0
+color = Color(0, 0.847059, 0.85098, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="invasion_alert_polygon" type="Polygon2D" parent="invasion"]
+position = Vector2(93, -4)
+color = Color(0, 0.847059, 0.85098, 1)
+polygon = PackedVector2Array(297, 3, 297, 23, 301, 23, 301, 19, 297, 19, 297, 18, 301, 18, 301, 3)
+
+[node name="invasion_label" type="Label" parent="invasion"]
+offset_right = 155.0
+offset_bottom = 23.0
+text = "invasão da casa em:"
+metadata/_edit_use_anchors_ = true
+
+[node name="life" type="Node2D" parent="."]
+position = Vector2(289.129, 29.2599)
+
+[node name="life_rect" type="ColorRect" parent="life"]
+offset_left = 36.0
+offset_top = 8.0
+offset_right = 186.0
+offset_bottom = 32.0
+color = Color(0.709804, 0.0588235, 0.0588235, 1)
+
+[node name="TextureRect" type="TextureRect" parent="life"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_00x5p")
+
+[node name="Line2D" type="Line2D" parent="life"]
+points = PackedVector2Array(35.871, 7.7401, 65.871, 7.7401, 65.871, 31.7401, 95.871, 31.7401, 95.871, 7.7401, 125.871, 7.7401, 125.871, 31.7401, 154.871, 31.7401, 154.871, 7.7401, 185.871, 7.7401, 185.871, 31.7401, 154.871, 31.7401, 154.871, 7.7401, 125.871, 7.7401, 125.871, 31.7401, 95.871, 31.7401, 95.871, 7.7401, 65.871, 7.7401, 65.871, 31.7401, 34.871, 31.7401)
+width = 2.0
+default_color = Color(0, 0, 0, 1)
+
+[node name="shoot_resource" type="Node2D" parent="."]
+position = Vector2(114, 593)
+
+[node name="shoot_resource_texture" type="TextureRect" parent="shoot_resource"]
+self_modulate = Color(1, 1, 1, 0.588235)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = 6.10352e-05
+offset_right = 69.0
+offset_bottom = 50.0001
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.349066
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_k5cx3")
+
+[node name="shoot_resource_label" type="Label" parent="shoot_resource"]
+offset_left = 23.0
+offset_top = 7.0
+offset_right = 63.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 0.14, 0.14, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+text = "0"
+
+[node name="life_resource" type="Node2D" parent="."]
+position = Vector2(40, 585)
+
+[node name="life_resource_texture" type="TextureRect" parent="life_resource"]
+self_modulate = Color(1, 1, 1, 0.588235)
+offset_right = 32.0
+offset_bottom = 31.0
+texture = ExtResource("2_00x5p")
+stretch_mode = 2
+
+[node name="life_resource_label" type="Label" parent="life_resource"]
+offset_left = 23.0
+offset_top = 13.0
+offset_right = 33.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(1, 0.14, 0.14, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+text = "0"
+
+[node name="day_time" type="Node2D" parent="."]
+position = Vector2(40, 40)
+
+[node name="time_label" type="Label" parent="day_time"]
+offset_left = -0.0304565
+offset_top = -5.6059
+offset_right = 105.97
+offset_bottom = 16.3941
+text = "Dia 1 // 05:00"

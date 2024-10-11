@@ -1,0 +1,14 @@
+TextureRect
+AudioStreamPlayer
+Node
+Camera2D
+SubViewport
+SubViewportContainer
+ColorRect
+MarginContainer
+Node2D
+AnimationPlayer
+Label
+HBoxContainer
+PanelContainer
+Panel

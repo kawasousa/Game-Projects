@@ -1,0 +1,206 @@
+[gd_scene load_steps=13 format=3 uid="uid://ckoxx85jctqna"]
+
+[ext_resource type="Script" path="res://script/house.gd" id="1_781us"]
+[ext_resource type="PackedScene" uid="uid://dy5vyatq360dc" path="res://scenes/pause_menu.tscn" id="1_viooo"]
+[ext_resource type="PackedScene" uid="uid://buwo4i7mxxfv3" path="res://scenes/hud.tscn" id="2_864eu"]
+[ext_resource type="PackedScene" uid="uid://cmkyt4hcorr3y" path="res://scenes/player.tscn" id="2_cnpi6"]
+[ext_resource type="PackedScene" uid="uid://dntwuhklfyvp2" path="res://scenes/passage_area.tscn" id="2_nqlps"]
+[ext_resource type="Texture2D" uid="uid://nsbwhtdjwvqp" path="res://assets/stick.png" id="3_dalu6"]
+[ext_resource type="Texture2D" uid="uid://c3lrqlwc65vgy" path="res://assets/gun.png" id="4_75172"]
+[ext_resource type="Texture2D" uid="uid://b2mm1qi1tj3sh" path="res://assets/life_icon.png" id="5_pgasn"]
+[ext_resource type="Texture2D" uid="uid://deejpf5pimjup" path="res://assets/carinha.png" id="6_1rode"]
+[ext_resource type="PackedScene" uid="uid://btm5fg74xn1qh" path="res://scenes/game_over_screen.tscn" id="6_s5mbg"]
+[ext_resource type="PackedScene" uid="uid://cuwvdickdojxe" path="res://scenes/inventory.tscn" id="7_rk743"]
+[ext_resource type="Texture2D" uid="uid://41io85ilblws" path="res://assets/heart.png" id="7_x8lxv"]
+
+[node name="house" type="Node2D"]
+script = ExtResource("1_781us")
+
+[node name="passage_area" parent="." instance=ExtResource("2_nqlps")]
+position = Vector2(378, 635)
+target_area = "res://scenes/outdoor_scene.tscn"
+player_position = Vector2(250, 335)
+
+[node name="scenario_placeholder" type="Node2D" parent="."]
+
+[node name="background" type="ColorRect" parent="scenario_placeholder"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.113725, 0.105882, 0.0156863, 1)
+
+[node name="prateleira" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 40.0
+offset_top = 448.0
+offset_right = 88.0
+offset_bottom = 632.0
+color = Color(0.701961, 0.443137, 0.188235, 1)
+
+[node name="prateleira2" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 1064.0
+offset_top = 448.0
+offset_right = 1112.0
+offset_bottom = 632.0
+color = Color(0.701961, 0.443137, 0.188235, 1)
+
+[node name="balcao" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 40.0
+offset_top = 384.0
+offset_right = 320.0
+offset_bottom = 448.0
+color = Color(0.87451, 0.580392, 0.305882, 1)
+
+[node name="balcao2" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 1112.0
+offset_bottom = 448.0
+color = Color(0.819608, 0.529412, 0.254902, 1)
+
+[node name="mesa_central" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 440.0
+offset_top = 112.0
+offset_right = 736.0
+offset_bottom = 288.0
+color = Color(0.784314, 0.392157, 0.27451, 1)
+
+[node name="fornalha" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 40.0
+offset_top = 32.0
+offset_right = 168.0
+offset_bottom = 280.0
+color = Color(0.478431, 0.45098, 0.45098, 1)
+
+[node name="bigorna" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 48.0
+offset_top = 296.0
+offset_right = 104.0
+offset_bottom = 368.0
+color = Color(0.4, 0.313726, 0.317647, 1)
+
+[node name="bau" type="ColorRect" parent="scenario_placeholder"]
+offset_left = 1040.0
+offset_top = 96.0
+offset_right = 1112.0
+offset_bottom = 272.0
+color = Color(0.431373, 0.286275, 0.129412, 1)
+
+[node name="table_scenario" type="Node2D" parent="scenario_placeholder"]
+
+[node name="Stick" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(482, 134)
+rotation = -0.23911
+scale = Vector2(1, 1)
+texture = ExtResource("3_dalu6")
+
+[node name="Stick2" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(471, 136)
+texture = ExtResource("3_dalu6")
+
+[node name="Stick3" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(688, 135)
+texture = ExtResource("3_dalu6")
+
+[node name="Stick4" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(707, 176)
+rotation = -1.55509
+scale = Vector2(1, 1)
+texture = ExtResource("3_dalu6")
+
+[node name="Stick5" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(614, 133)
+rotation = -2.63196
+texture = ExtResource("3_dalu6")
+
+[node name="Gun" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+modulate = Color(0.313496, 0.465752, 0.235155, 1)
+position = Vector2(678, 271)
+rotation = 0.673697
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_75172")
+
+[node name="LifeIcon" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(496, 272)
+scale = Vector2(0.4375, 0.435484)
+texture = ExtResource("5_pgasn")
+
+[node name="LifeIcon2" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(502, 270.75)
+scale = Vector2(0.4375, 0.435484)
+texture = ExtResource("5_pgasn")
+
+[node name="LifeIcon3" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(503, 276.75)
+scale = Vector2(0.4375, 0.435484)
+texture = ExtResource("5_pgasn")
+
+[node name="Carinha" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(454, 164)
+rotation = 0.359538
+scale = Vector2(0.375001, 0.375)
+texture = ExtResource("6_1rode")
+
+[node name="Heart" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(714, 217)
+rotation = -0.174533
+scale = Vector2(1, 1)
+texture = ExtResource("7_x8lxv")
+
+[node name="Stick6" type="Sprite2D" parent="scenario_placeholder/table_scenario"]
+position = Vector2(518, 181)
+rotation = -0.23911
+scale = Vector2(1, 1)
+texture = ExtResource("3_dalu6")
+
+[node name="paredes" type="Node2D" parent="scenario_placeholder"]
+
+[node name="ColorRect" type="ColorRect" parent="scenario_placeholder/paredes"]
+offset_right = 40.0
+offset_bottom = 648.0
+color = Color(0.301961, 0.219608, 0.172549, 0.996078)
+
+[node name="ColorRect2" type="ColorRect" parent="scenario_placeholder/paredes"]
+offset_left = 1112.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.301961, 0.219608, 0.172549, 0.996078)
+
+[node name="ColorRect4" type="ColorRect" parent="scenario_placeholder/paredes"]
+offset_right = 1144.0
+offset_bottom = 16.0
+color = Color(0.301961, 0.219608, 0.172549, 0.996078)
+
+[node name="ColorRect3" type="ColorRect" parent="scenario_placeholder/paredes"]
+offset_left = 464.0
+offset_top = 632.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.301961, 0.219608, 0.172549, 0.996078)
+
+[node name="ColorRect5" type="ColorRect" parent="scenario_placeholder/paredes"]
+offset_top = 632.0
+offset_right = 304.0
+offset_bottom = 648.0
+color = Color(0.301961, 0.219608, 0.172549, 0.996078)
+
+[node name="Player" parent="." instance=ExtResource("2_cnpi6")]
+position = Vector2(385, 540)
+
+[node name="inventory" parent="." instance=ExtResource("7_rk743")]
+offset_left = 589.0
+offset_top = 262.0
+offset_right = 589.0
+offset_bottom = 262.0
+
+[node name="Canvas" type="Node" parent="."]
+
+[node name="HUD" parent="Canvas" instance=ExtResource("2_864eu")]
+
+[node name="pause_menu" parent="Canvas" instance=ExtResource("1_viooo")]
+visible = false
+
+[node name="game_over_screen" parent="Canvas" instance=ExtResource("6_s5mbg")]
+visible = false
+message = "Os Jammer invadiram a casa"
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="body_entered" from="passage_area" to="." method="_on_passage_area_body_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhoind1jksein"]
+
+[ext_resource type="Script" path="res://scripts/levels/levelUtils/RoyalVictory.gd" id="1_8jiw7"]
+[ext_resource type="Texture2D" uid="uid://dlkwqwbnlo65c" path="res://assets/tilesets/fullAtlas.png" id="2_uy3v1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yxefs"]
+radius = 19.0
+
+[node name="RoyalVictory" type="Area2D"]
+script = ExtResource("1_8jiw7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yxefs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_uy3v1")
+region_enabled = true
+region_rect = Rect2(1344, 768, 64, 64)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,212 @@
+[gd_scene load_steps=15 format=3 uid="uid://cddpub53nqv3r"]
+
+[ext_resource type="Script" path="res://scripts/entities/Player.gd" id="1_8p4f1"]
+[ext_resource type="Texture2D" uid="uid://cwtbqnjgkuhgk" path="res://assets/entities/player/Chick_Down.png" id="1_loyqh"]
+[ext_resource type="Texture2D" uid="uid://bikqtsfx607gi" path="res://assets/entities/player/Chick_Up.png" id="2_c1mh7"]
+[ext_resource type="Shader" uid="uid://cyjjoe706pu3l" path="res://shaders/Shaders_Transition.tres" id="4_a5578"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa1qp"]
+atlas = ExtResource("1_loyqh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2p0e"]
+atlas = ExtResource("2_c1mh7")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44cjo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa1qp")
+}],
+"loop": false,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2p0e")
+}],
+"loop": false,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_nnp84"]
+resource_name = "run"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.7), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgebn"]
+_data = {
+"run": SubResource("Animation_nnp84")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijg3p"]
+radius = 42.45
+
+[sub_resource type="Animation" id="Animation_xc0pa"]
+resource_name = "dieAnimation"
+length = 1.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.48, 0.7, 0.95, 1.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.96, 0.92, 0.92, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect2:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 40), Vector2(323, 40)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect3:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.85, 0.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(40, 40), Vector2(309, 40)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_shv2j"]
+resource_name = "rebornAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a5gp"]
+_data = {
+"dieAnimation": SubResource("Animation_xc0pa"),
+"rebornAnimation": SubResource("Animation_shv2j")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j72br"]
+shader = ExtResource("4_a5578")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 3240.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 0.0
+shader_parameter/pixel_size = 100.0
+shader_parameter/circle_size = 1.256
+shader_parameter/curtains = 1.0
+shader_parameter/type = 1
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(512, 1624)
+collision_layer = 5
+collision_mask = 5
+motion_mode = 1
+script = ExtResource("1_8p4f1")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_44cjo")
+animation = &"up"
+
+[node name="AnimationSprite" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wgebn")
+}
+
+[node name="collisionShape2d" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_ijg3p")
+
+[node name="camera2d" type="Camera2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -72)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6a5gp")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_j72br")
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 256.0
+offset_top = 512.0
+offset_right = 296.0
+offset_bottom = 552.0
+rotation = 0.785398
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 504.0
+offset_top = 536.0
+offset_right = 544.0
+offset_bottom = 576.0
+rotation = 2.35619
+color = Color(0, 0, 0, 1)

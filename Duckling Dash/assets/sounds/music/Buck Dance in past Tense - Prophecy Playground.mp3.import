@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjduxuo0kt4vx"
+path="res://.godot/imported/Buck Dance in past Tense - Prophecy Playground.mp3-fbeb6b81d670187faa7b14d6801f430d.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Buck Dance in past Tense - Prophecy Playground.mp3"
+dest_files=["res://.godot/imported/Buck Dance in past Tense - Prophecy Playground.mp3-fbeb6b81d670187faa7b14d6801f430d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mw0vfkkoray"
+path="res://.godot/imported/Duck Quack Sfx.mp3-313095eff6fc0ebb1b439e622891e8c3.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/Duck Quack Sfx.mp3"
+dest_files=["res://.godot/imported/Duck Quack Sfx.mp3-313095eff6fc0ebb1b439e622891e8c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0.0
+beat_count=0
+bar_beats=4

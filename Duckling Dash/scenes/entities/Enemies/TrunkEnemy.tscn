@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgdjamxg58bdo"]
+
+[ext_resource type="Script" path="res://scripts/entities/Enemies/TrunkEnemy.gd" id="1_1f2an"]
+[ext_resource type="Texture2D" uid="uid://dlkwqwbnlo65c" path="res://assets/tilesets/fullAtlas.png" id="1_5xspv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_onoqf"]
+size = Vector2(96, 64)
+
+[node name="TrunkEnemy" type="CharacterBody2D"]
+collision_layer = 7
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_1f2an")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_5xspv")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 64)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("RectangleShape2D_onoqf")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(-56, 0)
+collision_mask = 6
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
