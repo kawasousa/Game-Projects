@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwa1hkpaqrqao"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_otovv"]
+[ext_resource type="Texture2D" uid="uid://cafs2gxlm7o3q" path="res://assets/character/Bboy/Player.png" id="2_npscr"]
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_otovv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(8, 8)
+texture = ExtResource("2_npscr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(60, -64, 60, 24, 44, 24, 44, 48, 36, 48, 36, 64, -20, 64, -20, 48, -32, 48, -32, 40, -52, 40, -52, -24, -44, -24, -44, -56, -36, -56, -36, -64)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_bottom = 576
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

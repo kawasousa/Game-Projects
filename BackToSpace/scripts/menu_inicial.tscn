@@ -1,0 +1,148 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqfwhhxyuowiy"]
+
+[ext_resource type="Script" path="res://scripts/menu_inicial.gd" id="1_8lcgo"]
+[ext_resource type="Texture2D" uid="uid://d3lb0qj62mcxi" path="res://assets/buttons/StartButton.png" id="2_mi61f"]
+[ext_resource type="FontFile" uid="uid://di7a5d8sbpvud" path="res://themes/fonts/PixelifySans-Regular.ttf" id="3_gqntm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_meq4j"]
+font = ExtResource("3_gqntm")
+font_size = 35
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gns6e"]
+texture = ExtResource("2_mi61f")
+region_rect = Rect2(0, 64, 128, 64)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_es32a"]
+texture = ExtResource("2_mi61f")
+region_rect = Rect2(4, 0, 120, 61.5)
+
+[sub_resource type="Theme" id="Theme_6foa8"]
+default_font = ExtResource("3_gqntm")
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/styles/focus = SubResource("StyleBoxTexture_gns6e")
+Button/styles/normal = SubResource("StyleBoxTexture_es32a")
+
+[node name="MenuInicial" type="Control"]
+custom_minimum_size = Vector2(640, 576)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8lcgo")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="background"]
+custom_minimum_size = Vector2(0, 440)
+offset_right = 640.0
+offset_bottom = 440.0
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="background"]
+custom_minimum_size = Vector2(0, 100)
+offset_top = 440.0
+offset_right = 640.0
+offset_bottom = 576.0
+size_flags_vertical = 3
+color = Color(0.0392157, 0.0392157, 0.113725, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 580.0
+
+[node name="LogoContainer" type="CenterContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 288)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/LogoContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+color = Color(0.337574, 0.464967, 0.53385, 1)
+
+[node name="Label" type="Label" parent="VBoxContainer/LogoContainer"]
+layout_mode = 2
+text = "LOGO DO JOGO"
+label_settings = SubResource("LabelSettings_meq4j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 288)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="start_button" type="Button" parent="VBoxContainer/ButtonsContainer/CenterContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_6foa8")
+text = "new game"
+
+[node name="CenterContainer2" type="CenterContainer" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="exit_button" type="Button" parent="VBoxContainer/ButtonsContainer/CenterContainer2"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+mouse_filter = 2
+theme = SubResource("Theme_6foa8")
+text = "quit"
+
+[node name="size_tests" type="Node2D" parent="."]
+
+[node name="bboy" type="ColorRect" parent="size_tests"]
+offset_left = 51.0
+offset_top = 393.0
+offset_right = 83.0
+offset_bottom = 436.0
+
+[node name="seaweed" type="ColorRect" parent="size_tests"]
+offset_left = 405.0
+offset_top = 405.0
+offset_right = 437.0
+offset_bottom = 437.0
+color = Color(0.132869, 0.481463, 3.65794e-06, 1)
+
+[node name="flysh" type="ColorRect" parent="size_tests"]
+offset_left = 212.0
+offset_top = 340.0
+offset_right = 244.0
+offset_bottom = 367.0
+color = Color(0.87451, 0, 0.101961, 1)
+
+[node name="ColorRect" type="ColorRect" parent="size_tests"]
+offset_left = 581.0
+offset_top = 381.0
+offset_right = 613.0
+offset_bottom = 438.0
+color = Color(5.29438e-07, 0.3863, 0.27191, 1)
+
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/CenterContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonsContainer/CenterContainer2/exit_button" to="." method="_on_exit_button_pressed"]
