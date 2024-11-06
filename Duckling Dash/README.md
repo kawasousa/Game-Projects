@@ -11,7 +11,7 @@ Este projeto foi desenvolvido para a competição interna de jogos do LABIRAS, q
 ## Tecnologias utilizadas
 - **Godot**: Usada para desenvolver os códigos e interfaces de usuário do projeto 
 - **Android Studio**: Gera a chave de depuração para exportação do projeto em formato `.apk`
-- **Java Development Kit (JDK)**: 
+- **Java Development Kit (JDK)**: Compila o projeto para a assinatura de pacote do app
 ## Como rodar o jogo
 Pré-requisitos:
 - Dispositivo Android 
