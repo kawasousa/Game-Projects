@@ -15,5 +15,5 @@ Este projeto foi desenvolvido para a competição interna de jogos do LABIRAS, q
 ## Como rodar o jogo
 Pré-requisitos:
 - Dispositivo Android 
-A pasta [exports]() conta com o arquivo `Duckling Dash.apk`, único arquivo de instalação necessário.
+A pasta [exports](https://github.com/kawasousa/Game-Projects/tree/main/Duckling%20Dash/exports) conta com o arquivo [`Duckling Dash.apk`](https://github.com/kawasousa/Game-Projects/blob/main/Duckling%20Dash/exports/Duckling%20Dash.apk), único arquivo de instalação necessário.
 Observação: por se tratar de um arquivo de depuração, é necessário colocar o dispositivo em modo desenvolvedor
