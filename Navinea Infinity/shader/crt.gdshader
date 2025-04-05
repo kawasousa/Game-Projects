@@ -8,11 +8,11 @@ uniform float brightness : hint_range(0.0, 2.0) = 1.3; // Adicionando controle d
 void fragment() {
     vec2 resolution = vec2(textureSize(TEXTURE, 0));
     vec2 uv = FRAGCOORD.xy / resolution;
-    
+
     // Calculate time-based distortion
     float time = TIME * time_speed;
 	//float time = time_speed;
-    
+
     // Simulate scanlines
     float scanline = sin((uv.y + time) * resolution.y * scanline_size) * 0.5 + 0.5;
 
@@ -21,7 +21,7 @@ void fragment() {
     uv.y += distortion_amount * sin((uv.x + time) * 3.14159265 * 2.0);
 
     vec4 color = texture(TEXTURE, uv);
-    
+
     // Apply scanline effect to the color
     color.rgb *= scanline;
 

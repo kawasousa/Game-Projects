@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdmeuno5tx0gb"]
 
 [ext_resource type="Texture2D" uid="uid://biys1ed0dsrwg" path="res://assets/sprites/entities/ship.png" id="1_0l1vn"]
-[ext_resource type="Script" path="res://scripts/entities/player.gd" id="1_hvawf"]
+[ext_resource type="Script" uid="uid://cdcvudpu7aouc" path="res://scripts/entities/player.gd" id="1_hvawf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8h4a"]
 atlas = ExtResource("1_0l1vn")
@@ -84,7 +84,7 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8ou7y"]
 _data = {
-"damage_animation": SubResource("Animation_mgsfp")
+&"damage_animation": SubResource("Animation_mgsfp")
 }
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -103,7 +103,7 @@ shape = SubResource("RectangleShape2D_yjeya")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8ou7y")
+&"": SubResource("AnimationLibrary_8ou7y")
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]

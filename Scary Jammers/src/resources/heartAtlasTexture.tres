@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://6k73uaq0n44b"]
+
+[ext_resource type="Texture2D" uid="uid://ba4we1ceke3ld" path="res://src/assets/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_ASSET_PACK_V2.1/Sunnyside_World_Assets/UI/expression_love.png" id="1_4kwdq"]
+
+[resource]
+atlas = ExtResource("1_4kwdq")

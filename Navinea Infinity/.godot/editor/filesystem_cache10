@@ -1,0 +1,72 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1743835041
+export_presets.cfg::TextFile/TextFile::-1::1743835041::0::1::::<><><>0<>0<><>::
+::res://assets/::1743287824
+::res://assets/fonts/::1743831543
+Early GameBoy.ttf::FontFile/FontFile::3435380353989637837::1743287824::1743831543::1::::<><><>0<>0<>25785cdf41405608c5c1ac6703b99744<>res://.godot/imported/Early GameBoy.ttf-059e2bdeabb94c56241026a22d25002c.fontdata::
+::res://assets/sounds/::1743287824
+::res://assets/sounds/musics/::1743831543
+music menu 2.MP3::AudioStreamMP3/AudioStreamMP3::2670947997659901431::1743287824::1743831543::1::::<><><>0<>0<>16b145d9962f015e671e939cc8185663<>res://.godot/imported/music menu 2.MP3-12a2e669e22617f33eea4243fd1d49ba.mp3str::
+Swan Lake Theme.mp3::AudioStreamMP3/AudioStreamMP3::1624279579910016556::1743287824::1743831543::1::::<><><>0<>0<>34ae5e19219d4507cca6300b2bbbd356<>res://.godot/imported/Swan Lake Theme.mp3-dbdbbb3c5bfaf116affcf1dc5bcb7de9.mp3str::
+::res://assets/sounds/sfx/::1743831543
+8- bit explosion.mp3::AudioStreamMP3/AudioStreamMP3::6114058819526294748::1743287824::1743831543::1::::<><><>0<>0<>427ab022a7b00074d241091c682738d6<>res://.godot/imported/8- bit explosion.mp3-6978c710615eedc1a2d8be8412d59f5f.mp3str::
+8-bit hit.mp3::AudioStreamMP3/AudioStreamMP3::1619068323491249817::1743287824::1743831543::1::::<><><>0<>0<>d2da2f4ecdc6a04b89b74929f218de45<>res://.godot/imported/8-bit hit.mp3-5766dd3cf5be556bf33cff89b3bd0352.mp3str::
+8bit shoot.MP3::AudioStreamMP3/AudioStreamMP3::3981229974253831722::1743287824::1743831543::1::::<><><>0<>0<>2dd7f5f4a7a6194d279715ae223300e2<>res://.godot/imported/8bit shoot.MP3-7797ef2505411c6158ba6cdd780d26fb.mp3str::
+::res://assets/sprites/::1743287824
+::res://assets/sprites/entities/::1743833179
+asteroid-1.png::CompressedTexture2D/CompressedTexture2D::4085665195561120858::1743287824::1743831543::1::::<><><>0<>0<>ef28aa8cce57862454573ac039e7be79<>res://.godot/imported/asteroid-1.png-e69b55717d2096d9cc20db84fc9f43a4.ctex::
+asteroid-2.png::CompressedTexture2D/CompressedTexture2D::8853033952461074007::1743287824::1743831543::1::::<><><>0<>0<>990f693f5793d6dc761e591c4c1b0cc1<>res://.godot/imported/asteroid-2.png-654d6ecac0c3ef58b09058dab567ee23.ctex::
+big_planet.png::CompressedTexture2D/CompressedTexture2D::898878252693730734::1743287824::1743831543::1::::<><><>0<>0<>473c03ad447bce7a583d5b58dd8758a2<>res://.godot/imported/big_planet.png-9233b677b7e3c6d2b4e654210f2f63bb.ctex::
+explosion.png::CompressedTexture2D/CompressedTexture2D::6089334845971951799::1743287824::1743831543::1::::<><><>0<>0<>425beeda9fc3772a6409f49a7552bf0f<>res://.godot/imported/explosion.png-20009cd28bdc289a4c6c050dfe6fd234.ctex::
+ship.png::CompressedTexture2D/CompressedTexture2D::2998616051274554710::1743287824::1743831543::1::::<><><>0<>0<>6f22e9156ea454a9c0f278970dc110d9<>res://.godot/imported/ship.png-25cd4bc1690415993194eb1b05ff17b4.ctex::
+shoot.png::CompressedTexture2D/CompressedTexture2D::6326749111239272346::1743287824::1743831543::1::::<><><>0<>0<>620e8fbadebbc7e018b01b976da051dd<>res://.godot/imported/shoot.png-d60c059d22c86e6cae944f0df155cf6e.ctex::
+::res://assets/sprites/tilesets/::1743831543
+background.png::CompressedTexture2D/CompressedTexture2D::5894687683694726161::1743287824::1743831543::1::::<><><>0<>0<>5994cb7fb72cd19492e10f0699e47318<>res://.godot/imported/background.png-b299cc9597a49f27f7a30e36de24291f.ctex::
+::res://assets/sprites/ui/::1743832930
+button_icon.png::CompressedTexture2D/CompressedTexture2D::6598059608639762543::1743287824::1743831543::1::::<><><>0<>0<>a9f1907ed2355e7b63e4db83595745b6<>res://.godot/imported/button_icon.png-0fcc526c7a880c896fe8504b8005894c.ctex::
+canvas.png::CompressedTexture2D/CompressedTexture2D::6504904305419338551::1743287824::1743831543::1::::<><><>0<>0<>ab5921edaba47fdd0522fbcf6dd51aa0<>res://.godot/imported/canvas.png-6e6e8e835ee024646c5a4eb52b6b069e.ctex::
+canvastotext.png::CompressedTexture2D/CompressedTexture2D::8111687558909923855::1743287824::1743831543::1::::<><><>0<>0<>6dc43e61612dffd823712fcf370c7300<>res://.godot/imported/canvastotext.png-35d56dfd6af8b01b1468c5fc0154025b.ctex::
+gamelogo.png::CompressedTexture2D/CompressedTexture2D::1429718963226261456::1743832922::1743832930::1::::<><><>0<>0<>6214a4d35fa0fee1b50f77c774a0851f<>res://.godot/imported/gamelogo.png-8182b12d4d98574e82bafad508428bb9.ctex::
+game_over_screen.png::CompressedTexture2D/CompressedTexture2D::8503672512419973655::1743287824::1743831543::1::::<><><>0<>0<>29d7426f59e23497e0d358f393fff7df<>res://.godot/imported/game_over_screen.png-9aaca3810b517f142a71f08b014d1c18.ctex::
+start_screen.png::CompressedTexture2D/CompressedTexture2D::6853246542712441366::1743287824::1743831543::1::::<><><>0<>0<>e4a292c7dd0bdaf476f7046287412b00<>res://.godot/imported/start_screen.png-9c44ba8665fa295b2bcf246f5c59bee3.ctex::
+::res://exports/::1743835041
+index.apple-touch-icon.png::CompressedTexture2D::1464961802494869336::1743835041::1743835060::1::::<><><>0<>0<>40349f1aa431b7bdf1fda4e35bf64468<>res://.godot/imported/index.apple-touch-icon.png-65973ddaad96ecdaf3c752a8d5b693c7.ctex::
+index.icon.png::CompressedTexture2D::2700299262916254789::1743835041::1743835060::1::::<><><>0<>0<>f2c0833b7edbec844d189542bc118077<>res://.godot/imported/index.icon.png-c4a9e96706e70b250c0b0144b6b11313.ctex::
+index.png::CompressedTexture2D::2065138234033308619::1743835041::1743835060::1::::<><><>0<>0<>a77a054f52deae38c4c6505ea98d337e<>res://.godot/imported/index.png-b259ab16718bc210c505332965363aff.ctex::
+::res://scenes/::1743287824
+::res://scenes/autoloads/::1743834065
+global.tscn::PackedScene::6376529509135356373::1743831565::0::1::::<><><>0<>0<><>::uid://dnspwsnvw8adv::::res://scripts/autoloads/Global.gd
+soundManager.tscn::PackedScene::6802594276760033467::1743834065::0::1::::<><><>0<>0<><>::uid://clgskwsii183o::::res://scripts/autoloads/soundManager.gd
+::res://scenes/entities/::1743834065
+asteroid.tscn::PackedScene::7150342380025102196::1743834065::0::1::::<><><>0<>0<><>::uid://bdqka8eqwhokb::::res://scripts/entities/asteroid.gd<>uid://byhekra7l3t83::::res://assets/sprites/entities/asteroid-1.png<>uid://dyeqf8f1ri6w6::::res://assets/sprites/entities/asteroid-2.png<>uid://cbc65b3whv5wm::::res://scenes/entities/explosion.tscn
+explosion.tscn::PackedScene::4849094863912929608::1743831565::0::1::::<><><>0<>0<><>::uid://cs0ypqjfh8304::::res://assets/sprites/entities/explosion.png<>uid://dk0nl0oiy0ug1::::res://scripts/entities/explosion.gd
+player.tscn::PackedScene::2622039037325279193::1743834065::0::1::::<><><>0<>0<><>::uid://biys1ed0dsrwg::::res://assets/sprites/entities/ship.png<>uid://cdcvudpu7aouc::::res://scripts/entities/player.gd
+shoot.tscn::PackedScene::5275156406219492356::1743831565::0::1::::<><><>0<>0<><>::uid://jvgvxs7w6f6::::res://scripts/entities/shoot.gd<>uid://cweyvslts6u15::::res://assets/sprites/entities/shoot.png
+::res://scenes/menus/::1743834065
+game_over_menu.tscn::PackedScene::8694310736385951812::1743834065::0::1::::<><><>0<>0<><>::uid://ciifqlebcn586::::res://scripts/menus/game_over_menu.gd<>uid://dtfiij6mhsi60::::res://assets/sprites/ui/game_over_screen.png<>uid://cmwgba5ocfaeu::::res://themes/game_over.tres<>uid://bo7ehhwxixleb::::res://assets/fonts/Early GameBoy.ttf<>uid://c1afcv5revpql::::res://assets/sprites/ui/button_icon.png
+hud.tscn::PackedScene::6710380413714497431::1743831565::0::1::::<><><>0<>0<><>::uid://bo7ehhwxixleb::::res://assets/fonts/Early GameBoy.ttf<>uid://smw5t8yi6wo1::::res://scripts/menus/hud.gd
+level.tscn::PackedScene::7819962491428010984::1743834065::0::1::::<><><>0<>0<><>::uid://dlbgymq3wa5nk::::res://scripts/menus/level.gd<>uid://cp8ov6sftk706::::res://assets/sprites/tilesets/background.png<>uid://bdmeuno5tx0gb::::res://scenes/entities/player.tscn<>uid://bq1kcb2otgpmk::::res://shader/level.gdshader<>uid://cglutgftmm0jk::::res://shader/crt.gdshader<>uid://c2us8qxbbrurn::::res://scenes/menus/hud.tscn<>uid://dgw6vtudok5tv::::res://scenes/menus/tutorial.tscn<>uid://dv4ua640tlm6o::::res://scenes/menus/game_over_menu.tscn
+start_menu.tscn::PackedScene::3066772613153592939::1743834065::0::1::::<><><>0<>0<><>::uid://cp8ov6sftk706::::res://assets/sprites/tilesets/background.png<>uid://cu0a3eg2dig3c::::res://scripts/menus/start_menu.gd<>uid://dmrj2vpjdelbq::::res://shader/start_menu_bg.gdshader<>uid://c4v077q3uxy3g::::res://assets/sprites/ui/start_screen.png<>uid://cmwgba5ocfaeu::::res://themes/game_over.tres<>uid://c1afcv5revpql::::res://assets/sprites/ui/button_icon.png<>uid://cglutgftmm0jk::::res://shader/crt.gdshader
+tutorial.tscn::PackedScene::7627732180939760163::1743831565::0::1::::<><><>0<>0<><>::uid://bo7ehhwxixleb::::res://assets/fonts/Early GameBoy.ttf<>uid://cersxs6b0j63v::::res://scripts/menus/tutorial.gd
+::res://scripts/::1743287824
+::res://scripts/autoloads/::1743831543
+Global.gd::GDScript/GDScript::8109826826791805251::1743287824::0::1::::<>Node<><>0<>0<><>::
+soundManager.gd::GDScript/GDScript::5558416861433180058::1743287824::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/entities/::1743831543
+asteroid.gd::GDScript/GDScript::2630626168806249509::1743287824::0::1::::<>Area2D<><>0<>0<><>::
+explosion.gd::GDScript/GDScript::7913570231057616126::1743287824::0::1::::<>AnimatedSprite2D<><>0<>0<><>::
+player.gd::GDScript/GDScript::4988847608228217250::1743287824::0::1::::Player<>CharacterBody2D<><>0<>0<><>::
+shoot.gd::GDScript/GDScript::19866310780418805::1743287824::0::1::::<>Area2D<><>0<>0<><>::
+::res://scripts/menus/::1743831543
+game_over_menu.gd::GDScript/GDScript::5351199880173974177::1743287824::0::1::::<>CanvasLayer<><>0<>0<><>::
+hud.gd::GDScript/GDScript::1289562116215892998::1743287824::0::1::::<>CanvasLayer<><>0<>0<><>::
+level.gd::GDScript/GDScript::7933811526160734236::1743287824::0::1::::Level<>Control<><>0<>0<><>::
+start_menu.gd::GDScript/GDScript::6228277906820996130::1743287824::0::1::::<>Control<><>0<>0<><>::
+tutorial.gd::GDScript/GDScript::5089826136275430657::1743287824::0::1::::<>CanvasLayer<><>0<>0<><>::
+::res://shader/::1743834065
+crt.gdshader::Shader::5217931178192509152::1743834065::0::1::::<><><>0<>0<><>::
+level.gdshader::Shader::3563726839917457086::1743834065::0::1::::<><><>0<>0<><>::
+start_menu_bg.gdshader::Shader::8037218392500555406::1743834065::0::1::::<><><>0<>0<><>::
+::res://themes/::1743287824
+game_over.tres::Theme/Theme::5660889936365507236::1743287824::0::1::::<><><>0<>0<><>::uid://bo7ehhwxixleb::::res://assets/fonts/Early GameBoy.ttf
+start_menu.tres::Theme/Theme::6167301231745581657::1743287824::0::1::::<><><>0<>0<><>::uid://bo7ehhwxixleb::::res://assets/fonts/Early GameBoy.ttf

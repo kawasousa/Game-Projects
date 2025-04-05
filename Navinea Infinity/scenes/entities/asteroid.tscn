@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c84xdhbgo476o"]
 
-[ext_resource type="Script" path="res://scripts/entities/asteroid.gd" id="1_0shho"]
+[ext_resource type="Script" uid="uid://bdqka8eqwhokb" path="res://scripts/entities/asteroid.gd" id="1_0shho"]
 [ext_resource type="Texture2D" uid="uid://byhekra7l3t83" path="res://assets/sprites/entities/asteroid-1.png" id="2_mrd1u"]
 [ext_resource type="Texture2D" uid="uid://dyeqf8f1ri6w6" path="res://assets/sprites/entities/asteroid-2.png" id="3_qge7q"]
 [ext_resource type="PackedScene" uid="uid://cbc65b3whv5wm" path="res://scenes/entities/explosion.tscn" id="4_mq8pf"]

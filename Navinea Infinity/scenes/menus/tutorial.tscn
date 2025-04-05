@@ -1,8 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dgw6vtudok5tv"]
 
 [ext_resource type="FontFile" uid="uid://bo7ehhwxixleb" path="res://assets/fonts/Early GameBoy.ttf" id="1_jrg75"]
-[ext_resource type="Script" path="res://scripts/menus/tutorial.gd" id="1_oogfm"]
-
+[ext_resource type="Script" uid="uid://cersxs6b0j63v" path="res://scripts/menus/tutorial.gd" id="1_oogfm"]
 
 [sub_resource type="Animation" id="Animation_smr8m"]
 length = 0.001
@@ -37,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7f4as"]
 _data = {
-"RESET": SubResource("Animation_smr8m"),
-"slide": SubResource("Animation_4opc5")
+&"RESET": SubResource("Animation_smr8m"),
+&"slide": SubResource("Animation_4opc5")
 }
 
 [node name="tutorial" type="CanvasLayer"]
