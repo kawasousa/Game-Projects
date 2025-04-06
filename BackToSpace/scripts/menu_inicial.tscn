@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dqfwhhxyuowiy"]
 
-[ext_resource type="Script" path="res://scripts/menu_inicial.gd" id="1_8lcgo"]
+[ext_resource type="Script" uid="uid://vehqmk0cqe4p" path="res://scripts/menu_inicial.gd" id="1_8lcgo"]
 [ext_resource type="Texture2D" uid="uid://d3lb0qj62mcxi" path="res://assets/buttons/StartButton.png" id="2_mi61f"]
 [ext_resource type="FontFile" uid="uid://di7a5d8sbpvud" path="res://themes/fonts/PixelifySans-Regular.ttf" id="3_gqntm"]
 

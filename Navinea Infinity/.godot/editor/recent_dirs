@@ -1,10 +1,16 @@
-/home/kawasousa/Documents/dotdev/labiras/games/projeto/Game-Projects/Navinea Infinity/exports
+/home/kawasousa/Documents/dotdev/labiras/games/projetos/Game-Projects/Navinea Infinity/exports/NavineaInfinity-v1.5
+res://exports
+res://assets/sprites/ui
 res://assets/sprites/entities
+/home/kawasousa/Documents/dotdev/labiras/games/projetos/Game-Projects/Navinea Infinity/exports
+res://scenes/ui
 res://shader
-res://scenes/menus
+res://scripts/menus
 res://scenes/entities
+res://assets/sprites/tilesets
+res://themes
+res://scenes/levels
 res://scenes/autoloads
 res://assets
 res://scripts
 res://scenes
-res://themes

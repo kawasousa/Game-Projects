@@ -1,0 +1,147 @@
+[gd_scene load_steps=12 format=3 uid="uid://dv4ua640tlm6o"]
+
+[ext_resource type="Script" uid="uid://ciifqlebcn586" path="res://scripts/menus/game_over_menu.gd" id="1_rbyxm"]
+[ext_resource type="PackedScene" uid="uid://bjxtkdgqfrrrn" path="res://scenes/ui/start_menu.tscn" id="2_2410i"]
+[ext_resource type="Texture2D" uid="uid://dtfiij6mhsi60" path="res://assets/sprites/ui/game_over_screen.png" id="2_v5y55"]
+[ext_resource type="Theme" uid="uid://cmwgba5ocfaeu" path="res://themes/game_over.tres" id="3_cqc4q"]
+[ext_resource type="Texture2D" uid="uid://c1afcv5revpql" path="res://assets/sprites/ui/button_icon.png" id="5_pr7po"]
+
+[sub_resource type="Animation" id="Animation_e84m7"]
+resource_name = "floating"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -18.634), Vector2(0, 6.366)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2ik"]
+_data = {
+&"floating": SubResource("Animation_e84m7")
+}
+
+[sub_resource type="Theme" id="Theme_3g51q"]
+TextEdit/colors/background_color = Color(0.203922, 0.407843, 0.337255, 1)
+TextEdit/colors/font_color = Color(0.878431, 0.972549, 0.815686, 1)
+TextEdit/colors/font_placeholder_color = Color(0.878431, 0.972549, 0.815686, 1)
+TextEdit/icons/space = null
+TextEdit/icons/tab = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eenbc"]
+bg_color = Color(0.0313726, 0.0941176, 0.12549, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okvk7"]
+bg_color = Color(0.0313726, 0.0941176, 0.12549, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01vsu"]
+bg_color = Color(0.0313726, 0.0941176, 0.12549, 0)
+
+[node name="GameOverMenu" type="CanvasLayer"]
+script = ExtResource("1_rbyxm")
+startMenuScene = ExtResource("2_2410i")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../CanvasRect")
+libraries = {
+&"": SubResource("AnimationLibrary_0i2ik")
+}
+autoplay = "floating"
+
+[node name="CanvasRect" type="TextureRect" parent="."]
+offset_top = -18.634
+offset_right = 960.0
+offset_bottom = 845.366
+texture = ExtResource("2_v5y55")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 363.0
+offset_top = 519.0
+offset_right = 614.0
+offset_bottom = 577.0
+theme_override_constants/separation = 20
+
+[node name="RestartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_cqc4q")
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = 10
+text = "tentar novamente"
+icon = ExtResource("5_pr7po")
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_cqc4q")
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_constants/h_separation = -20
+text = "menu inicial"
+icon = ExtResource("5_pr7po")
+
+[node name="highScore" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -108.0
+offset_top = 288.0
+offset_right = 92.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[wave amp=30.0 freq=5.0 connected=1]recorde: 6969[/wave]"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewHighScore" type="Node2D" parent="."]
+
+[node name="Username" type="LineEdit" parent="NewHighScore"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 355.0
+offset_top = 756.0
+offset_right = 589.0
+offset_bottom = 791.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_3g51q")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eenbc")
+theme_override_styles/read_only = SubResource("StyleBoxFlat_okvk7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_01vsu")
+alignment = 1
+max_length = 10
+expand_to_text_length = true
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+draw_control_chars = true
+
+[node name="setUsernameLabel" type="RichTextLabel" parent="NewHighScore"]
+offset_left = 345.0
+offset_top = 803.0
+offset_right = 593.0
+offset_bottom = 823.0
+theme_override_colors/default_color = Color(0.878431, 0.972549, 0.815686, 1)
+text = "pressione enter"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/RestartButton" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_to_menu_pressed"]

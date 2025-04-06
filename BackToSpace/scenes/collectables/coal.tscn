@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfmcwigq2we07"]
 
-[ext_resource type="Script" path="res://scripts/coal.gd" id="1_kqdxw"]
+[ext_resource type="Script" uid="uid://ch71jkdu6xfx6" path="res://scripts/coal.gd" id="1_kqdxw"]
 [ext_resource type="Texture2D" uid="uid://dsc4kmg4tydba" path="res://assets/collectables/coal.png" id="1_wn01t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x81ky"]

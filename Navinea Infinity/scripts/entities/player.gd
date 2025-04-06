@@ -5,98 +5,91 @@ class_name Player
 @onready var sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const SPEED = 30000
-const RECOIL = -4000
-var direction: Vector2 = Vector2.ZERO
-var isCameraShaking: bool = false
-var max_shoot = 4
-const PRE_SHOOT = preload("res://scenes/entities/shoot.tscn")
-var maxHitPoints: int = 4
-var hitPoints: int = maxHitPoints
+@onready var collision: CollisionShape2D = $CollisionShape2D
+@export var projectil: PackedScene;
+
+var _canMove = true;
+var _canShoot = true;
+var _isCameraShaking: bool = false;
+var direction: Vector2 = Vector2.ZERO;
+
+const SPEED = 30000;
+const RECOIL = -4000;
+@export var maxShoot = 2;
+var maxLife: int = 4;
+var lifePoints: int = maxLife;
+
 
 func _ready():
 	Global.player = self
 
 func _process(_delta):
 	handledAnimation()
-	if isCameraShaking:
-		camera.offset = Vector2(randi_range(0, 4), randi_range(0, 4))
+	if _isCameraShaking:
+		camera.offset = Vector2(randi_range(0, 6), randi_range(0, 6))
 
 func _physics_process(delta):
-	## Mantem a nave dentro dos limites da tela
-	global_position.y = clamp(global_position.y, 40, 824)
-	global_position.x = clamp(global_position.x, 40, 920)
+	global_position = global_position.clamp(Vector2(40,40), Vector2(920,824));
 	
-	var _canMove = true
-	var _canShoot = true
-	
-	if Global.game_over:
-		_canMove = false
-		_canShoot = false
-		die()
-	
-	if _canMove:
-		movement(delta)
-	if _canShoot:
-		shoot()
-	updateHitPoints()
+	handleMovement(delta)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("shoot") and _canShoot:
+		attack();
 
 ## Atirar
-func shoot():
-	if Input.is_action_just_pressed("shoot"):
-		if get_tree().get_nodes_in_group("PlayerProjectiles").size() < max_shoot:
-			var shoot_instance = PRE_SHOOT.instantiate()
-			get_parent().get_node("shoot_group").add_child(shoot_instance)
-			shoot_instance.global_position = Vector2(global_position.x + 56, global_position.y)
-			shoot_instance.add_to_group("PlayerProjectiles")
-			
-			SoundManager.playSfx("shoot")
-
-func play_damage_animation() -> void:
-	animation_player.play("damage_animation")
+func attack():
+	if get_tree().get_nodes_in_group("PlayerProjectiles").size() < maxShoot:
+		var projectile_instance: Projectile = projectil.instantiate()
+		projectile_instance.global_position = Vector2(global_position.x + 56, global_position.y)
+		get_tree().get_current_scene().add_child(projectile_instance)
+		projectile_instance.add_to_group("PlayerProjectiles")
+		
+		SoundManager.playSfx("shoot")
 
 ## Movemento da nave
-func movement(delta):
-	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	direction = direction.normalized()
-	velocity = direction * SPEED * delta
-	if direction.x == 0:
-		velocity.x = RECOIL * delta
+func handleMovement(delta):
+	if _canMove:
+		direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+		velocity = direction * SPEED * delta * Global.physicsSpeed;
+		if direction.x == 0:
+			velocity.x = RECOIL * delta
+	
+	if lifePoints == 0:
+		rotate(0.005)
+		velocity = Vector2.RIGHT * RECOIL*delta
+		animated_sprite_2d.play("idle")
+	
 	move_and_slide()
 
 func handledAnimation() -> void:
-	match str(direction.y):
-		"-1":
+	match direction.y:
+		-1.0:
 			sprite.play("going_up")
-		"0":
+		0.0:
 			sprite.play("idle")
-		"1":
+		1.0:
 			sprite.play("going_down")
-	if direction == Vector2.RIGHT:
-		sprite.set_frame(0)
 
-func addHitPoints(points) -> void:
-	hitPoints += points
-
-func subtractHitPoints(points) -> void:
-	hitPoints -= points
-	if not Global.game_over:
-		hurt()
-
-func updateHitPoints() -> void:
-	hitPoints = max(hitPoints, 0)
-	if hitPoints == 0:
-		Global.game_over = true
-
-func hurt() -> void:
-	SoundManager.playSfx("damage")
-	play_damage_animation()
-	isCameraShaking = true
+func takeDamage(damage: int) -> void:
+	lifePoints -= damage;
+	SoundManager.playSfx("damage");
+	animation_player.play("damage_animation");
+	
+	_isCameraShaking = true
 	await get_tree().create_timer(0.5).timeout
-	isCameraShaking = false
+	_isCameraShaking = false
+	
+	handleLifePoints();
+
+func handleLifePoints() -> void:
+	lifePoints = max(lifePoints, 0)
+	if lifePoints == 0:
+		die()
 
 func die() -> void:
-	isCameraShaking = false
-	animated_sprite_2d.play("idle")
-	rotate(0.001)
-	global_position.x -= 0.5
+	collision.set_disabled(true);
+	_canMove = false
+	_canShoot = false
+
+	Global.emitGameOver()

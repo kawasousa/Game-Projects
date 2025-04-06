@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkxsts22chkay"]
+
+[ext_resource type="Shader" uid="uid://c16n34v6glq2y" path="res://shader/transition.tres" id="1_nw7un"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dee6"]
+shader = ExtResource("1_nw7un")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 0.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/circle_size = 1.5
+shader_parameter/curtains = 1.0
+
+[sub_resource type="Animation" id="Animation_p2a27"]
+resource_name = "fadein"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_nw7un"]
+resource_name = "fadeout"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4o7u2"]
+_data = {
+&"fadein": SubResource("Animation_p2a27"),
+&"fadeout": SubResource("Animation_nw7un")
+}
+
+[node name="Transition" type="CanvasLayer"]
+layer = 2
+
+[node name="Screen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_4dee6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0313726, 0.0941176, 0.12549, 1)
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4o7u2")
+}

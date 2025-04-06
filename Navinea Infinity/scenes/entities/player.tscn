@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bdmeuno5tx0gb"]
+[gd_scene load_steps=14 format=3 uid="uid://bdmeuno5tx0gb"]
 
 [ext_resource type="Texture2D" uid="uid://biys1ed0dsrwg" path="res://assets/sprites/entities/ship.png" id="1_0l1vn"]
 [ext_resource type="Script" uid="uid://cdcvudpu7aouc" path="res://scripts/entities/player.gd" id="1_hvawf"]
+[ext_resource type="PackedScene" uid="uid://chflb46r743ns" path="res://scenes/entities/projectile.tscn" id="2_1ie0h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o8h4a"]
 atlas = ExtResource("1_0l1vn")
@@ -91,10 +92,14 @@ _data = {
 scale = Vector2(1.5, 1.5)
 collision_mask = 2
 script = ExtResource("1_hvawf")
+projectil = ExtResource("2_1ie0h")
+maxShoot = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vhp3b")
 animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.0358886
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

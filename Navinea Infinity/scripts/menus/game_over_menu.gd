@@ -1,79 +1,59 @@
 extends CanvasLayer
 
-@onready var floating_animation = $MarginContainer/game_over_rect/floating_animation
-@onready var restart: Button = $VBoxContainer/restart
-@onready var high_score: Label = $high_score
-@onready var high_score_user: LineEdit = $new_high_score/high_score_user
-@onready var set_new_high_score_player: Button = $new_high_score/set_new_high_score_player
-var button_focus_checker: bool = false
-var new_hscore_setter: bool = false
-var score_draw: int
+@onready var animation: AnimationPlayer = $Animation
+@onready var restartButton: Button = $VBoxContainer/RestartButton
+@onready var quitButton: Button = $VBoxContainer/QuitButton;
+@onready var setUsernameLabel: RichTextLabel = $NewHighScore/setUsernameLabel;
+@onready var highscoreLabel: RichTextLabel = $highScore;
+@onready var usernameLineEdit: LineEdit = $NewHighScore/Username;
+var scoreDraw: int = 0;
+@export var startMenuScene: PackedScene;
 
 
 func _ready():
-	score_draw = 0
-	high_score_user.editable = false
-	high_score_user.placeholder_text = Global.high_score_player
-	set_new_high_score_player.disabled = false
-	set_new_high_score_player.visible = true
-	
-	SoundManager.addMusicToQueue("menu2")
+	restartButton.pressed.connect(onRestartButtonPressed);
+	quitButton.pressed.connect(onQuitButtonPressed);
+	usernameLineEdit.text_submitted.connect(onUsernameTextSubmitted);
 
-func _process(_delta):
-	show_game_over_screen()
-	set_new_high_score()
+	Global.setPhysicSpeed(0.05);
+
+	setHighScoreLabel();
+	setButtonFocus();
+	
+	SoundManager.addMusicToQueue("menu2");
+
+func setHighScoreLabel():
+	if Global.isNewHighScore():
+		while scoreDraw < Global.highScore:
+			highscoreLabel.text = "novo recorde: " + str(scoreDraw);
+			scoreDraw = move_toward(scoreDraw, Global.highScore, 10);
+			await get_tree().create_timer(0.005).timeout
+		highscoreLabel.text =\
+			"[wave amp=50.0 freq=5.0 connected=1]novo recorde: {0}[/wave]"\
+			.format([scoreDraw])
+	else:
+		highscoreLabel.text = "recorde: " + str(Global.highScore);
+		usernameLineEdit.text = "por " + Global.highScoreUsername;
+
+func setButtonFocus():
+	if Global.isNewHighScore():
+		usernameLineEdit.grab_focus();
+		setUsernameLabel.show();
+	else:
+		restartButton.grab_focus();
+		setUsernameLabel.hide();
+
+func onUsernameTextSubmitted(username: String):
+	Global.highScoreUsername = username;
+	restartButton.grab_focus();
+	setUsernameLabel.hide();
 
 ## Se o botão de tentar novamente for clicado, a cena é reiniciada.
-func _on_restart_pressed():
-	Engine.time_scale = 1
-	get_tree().reload_current_scene()
-	visible = false
-
-## Define as configurações da tela de game over
-func show_game_over_screen() -> void:
-	if Global.game_over:
-		Engine.time_scale = 0.3
-		visible = true
-		update_high_score_label()
-		grab_button_focus()
-		Global.player.die()
-		floating_animation.play("floating")
+func onRestartButtonPressed():
+	Global.changeScene(Global.scene["level"]);
+	Global.setPhysicSpeed(1);
 
 ## Se o botão de sair for pressionado, a cena muda para o menu inicial
-func _on_quit_to_menu_pressed():
-	Engine.time_scale = 1
-	get_tree().change_scene_to_file("res://scenes/menus/start_menu.tscn")
-
-## Define qual botão terá foco
-func grab_button_focus() -> void:
-	if Global.new_high_score == true:
-		high_score_user.grab_focus()
-		button_focus_checker = true
-		if Input.is_action_just_pressed("ui_accept"):
-			set_new_high_score_player.emit_signal("pressed")
-	else:
-		if button_focus_checker == false:
-			restart.grab_focus()
-			button_focus_checker = true
-
-func update_high_score_label() -> void:
-	if score_draw != Global.high_score:
-		score_draw += 5
-	else:
-		score_draw = Global.high_score
-	high_score.text = "recorde: " + str(score_draw)
-
-func set_new_high_score() -> void:
-	if Global.new_high_score == true and new_hscore_setter == false:
-		high_score_user.editable = true
-		high_score_user.placeholder_text = Global.high_score_player
-	else:
-		high_score_user.editable = false
-		set_new_high_score_player.disabled = true
-		set_new_high_score_player.visible = false
-
-func _on_set_new_high_score_player_pressed():
-	Global.high_score_player = high_score_user.text
-	Global.new_high_score = false
-	new_hscore_setter = true
-	button_focus_checker = false
+func onQuitButtonPressed():
+	Global.changeScene(Global.scene["startMenu"])
+	Global.setPhysicSpeed(1);

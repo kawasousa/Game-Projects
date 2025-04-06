@@ -11,14 +11,18 @@ config_version=5
 [application]
 
 config/name="NavineaInfinity"
-run/main_scene="res://scenes/menus/start_menu.tscn"
+run/main_scene="res://scenes/ui/start_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0.0313726, 0.0941176, 0.12549, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://idfqlgvu5mcy"
 config/icon="res://assets/sprites/entities/asteroid-1.png"
 
 [autoload]
 
 Global="*res://scenes/autoloads/global.tscn"
 SoundManager="*res://scenes/autoloads/soundManager.tscn"
+CrtFx="*res://scenes/ui/crt_efx.tscn"
 
 [display]
 

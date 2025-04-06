@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dogkwnijpgqq7"]
 
 [ext_resource type="Theme" uid="uid://g2o6rrbkiht3" path="res://themes/button.tres" id="1_1xi5e"]
-[ext_resource type="Script" path="res://scripts/pause_scene.gd" id="1_kd231"]
+[ext_resource type="Script" uid="uid://bdlvk8kyffart" path="res://scripts/pause_scene.gd" id="1_kd231"]
 
 [sub_resource type="InputEventKey" id="InputEventKey_63u6g"]
 device = -1

@@ -1,10 +1,15 @@
 extends Area2D
+class_name Projectile
 
 @onready var sprite = $AnimatedSprite2D
 const SPEED = 1000
+var startPosition: Vector2;
 
+func _ready() -> void:
+	startPosition = global_position;
 
 func _process(delta):
+	global_position.y = startPosition.y
 	translate(Vector2(SPEED, 0) * delta)
 	sprite.play("shoot")
 
