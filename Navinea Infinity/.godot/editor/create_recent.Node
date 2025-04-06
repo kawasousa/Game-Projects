@@ -1,4 +1,5 @@
 RichTextLabel
+Panel
 AnimationPlayer
 ColorRect
 CanvasLayer
@@ -11,4 +12,3 @@ Node
 Camera2D
 SubViewport
 SubViewportContainer
-MarginContainer

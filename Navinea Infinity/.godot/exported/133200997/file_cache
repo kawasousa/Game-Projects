@@ -1,4 +1,4 @@
-res://scenes/autoloads/global.tscn::b40467ddadf51fb9fb7ba68b4a61954e::1743901392::res://.godot/exported/133200997/export-b891eace6da969ec62813d9594a69750-global.scn
+res://scenes/autoloads/global.tscn::04aedb5a371ec4ee7647439f02c1e438::1743933715::res://.godot/exported/133200997/export-b891eace6da969ec62813d9594a69750-global.scn
 res://scenes/autoloads/soundManager.tscn::a8836c80dcf4f3930dc632e513a4409d::1743882253::res://.godot/exported/133200997/export-891cbd8d54efb5a8d8b12a34b9c26119-soundManager.scn
 res://scenes/entities/explosion.tscn::e3be147933dbacbb23838a22d1dfb359::1743831565::res://.godot/exported/133200997/export-b183f33b961abe9cdd93ebd14e69d456-explosion.scn
 res://scenes/entities/player.tscn::42a7731a7a60ee161c17d4ac63894dc7::1743907000::res://.godot/exported/133200997/export-60191d8570ad6bb283e7c30c15192e69-player.scn
@@ -7,10 +7,15 @@ res://themes/start_menu.tres::bff7488748c9d30d5c4e8017b706ced6::1743287824::res:
 res://scenes/entities/big_asteroid.tscn::7fe170de97b0f0246523b1481bc462b2::1743907000::res://.godot/exported/133200997/export-079caa22f8e4fbf1ecf4edc7e713802c-big_asteroid.scn
 res://scenes/entities/projectile.tscn::e0b57fe52f8e5c9e9c4814491e453206::1743880849::res://.godot/exported/133200997/export-6a607daea259027b9cdf439521f12416-projectile.scn
 res://scenes/entities/little_asteroid.tscn::d9c3314466968751b4bd7ab98a7ffd2d::1743907000::res://.godot/exported/133200997/export-b3c87120e6f4d8f4bc7217f9cc408325-little_asteroid.scn
-res://scenes/levels/level.tscn::04538c01c85063561c87a299b29e31ff::1743907000::res://.godot/exported/133200997/export-d2f84246acaf0198009608664807e4e4-level.scn
-res://scenes/ui/crt_efx.tscn::87c02d29645ad8ce7e1c41d78008f3a9::1743907000::res://.godot/exported/133200997/export-6313cc4584b147d0df663f97fe549589-crt_efx.scn
-res://scenes/ui/game_over_menu.tscn::1f6fc36978961660b5c946b7db11b5c3::1743907000::res://.godot/exported/133200997/export-999a6d0b5af21c237c4d6e86b754c830-game_over_menu.scn
+res://scenes/levels/level.tscn::7e66f63d4b0ee092644621b199375d40::1743933715::res://.godot/exported/133200997/export-d2f84246acaf0198009608664807e4e4-level.scn
+res://scenes/ui/crt_efx.tscn::87c02d29645ad8ce7e1c41d78008f3a9::1743928831::res://.godot/exported/133200997/export-6313cc4584b147d0df663f97fe549589-crt_efx.scn
+res://scenes/ui/game_over_menu.tscn::1bae3d9f03eb3ab11c9b2fc66a58187a::1743933715::res://.godot/exported/133200997/export-999a6d0b5af21c237c4d6e86b754c830-game_over_menu.scn
 res://scenes/ui/hud.tscn::d45afc4b92cf7b67a5f6c3a23a28228d::1743907000::res://.godot/exported/133200997/export-f26fe175837e58804f1c48b99041ac16-hud.scn
-res://scenes/ui/start_menu.tscn::d12e3b0b66d5ef8b6983bfc0cc0de37e::1743901932::res://.godot/exported/133200997/export-0d1e5e5969cfd7fbc6405e3a19dac33b-start_menu.scn
-res://scenes/ui/transition_effect.tscn::ccc2f8848d9851b5dd37074ecc899b3e::1743907000::res://.godot/exported/133200997/export-6a3d7569c2e7d06f2006fe4d4839ef96-transition_effect.scn
-res://shader/transition.tres::026b6453b3dab84b5b04780d4e679338::1743907887::res://.godot/exported/133200997/export-2db5111193ce70893690a83f66c46473-transition.res
+res://scenes/ui/start_menu.tscn::d12e3b0b66d5ef8b6983bfc0cc0de37e::1743932286::res://.godot/exported/133200997/export-0d1e5e5969cfd7fbc6405e3a19dac33b-start_menu.scn
+res://scenes/ui/transition_effect.tscn::ccc2f8848d9851b5dd37074ecc899b3e::1743930603::res://.godot/exported/133200997/export-6a3d7569c2e7d06f2006fe4d4839ef96-transition_effect.scn
+res://shader/transition.tres::026b6453b3dab84b5b04780d4e679338::1743933813::res://.godot/exported/133200997/export-2db5111193ce70893690a83f66c46473-transition.res
+res://addons/dialogue_manager/example_balloon/example_balloon.tscn::5107ad883a278320c5bed4e689d8934e::1743927719::res://.godot/exported/133200997/export-57fc9b32a4ae3d4a3041b46baf4b8f92-example_balloon.scn
+res://addons/dialogue_manager/example_balloon/small_example_balloon.tscn::54eb08e4cfee45fefdb7d929f631b6f2::1743927719::res://.godot/exported/133200997/export-25872080cd204f02261b5746b425708f-small_example_balloon.scn
+res://addons/dialogue_manager/dialogue_label.tscn::5087c11b45dfaf8effc779674dfe11e8::1743927718::res://.godot/exported/133200997/export-e41b7d5321416240678013b406b79557-dialogue_label.scn
+res://addons/dialogue_manager/test_scene.tscn::5946a9a55ceff988ba46e7f734ff0538::1743927719::res://.godot/exported/133200997/export-74a175fe1e216df3bdf79c5c27a2ac2c-test_scene.scn
+res://scenes/ui/addons/dialogues/balloon.tscn::05fd2ba06bbe4cdf72b8bb5b79858bfe::1743933813::res://.godot/exported/133200997/export-61fa47360ed6fa52f76494ba4f996c1a-balloon.scn

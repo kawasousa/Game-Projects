@@ -1,6 +1,6 @@
 extends Node
 
-signal gameOver
+signal gameOver;
 
 @onready var transition: CanvasLayer = $Transition
 var physicsSpeed: float = 1.0;
@@ -12,7 +12,6 @@ var explosion_node = null
 var currentScore: int = 0
 var highScore: int = 0
 var highScoreUsername: String
-var new_highScore: bool = false
 
 var scene: Dictionary = {
 	"startMenu": "res://scenes/ui/start_menu.tscn",
@@ -26,7 +25,6 @@ func _ready():
 
 func _process(_delta):
 	update_highScore()
-	set_new_highScore()
 
 func add_points(points: int) -> void:
 	currentScore += points
@@ -36,17 +34,19 @@ func update_highScore() -> void:
 
 func restart_game_values() -> void:
 	currentScore = 0
-	new_highScore = false
-
-func set_new_highScore() -> void:
-	if currentScore >= highScore:
-		new_highScore = true
 
 func isNewHighScore() -> bool:
 	return currentScore >= highScore;
 
 func emitGameOver():
 	gameOver.emit();
+
+func pauseScene():
+	get_tree().paused = true;
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and get_tree().paused:
+		get_tree().paused = false
 
 func setPhysicSpeed(modifier: float):
 	physicsSpeed = modifier;

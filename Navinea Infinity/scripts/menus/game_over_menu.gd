@@ -20,6 +20,10 @@ func _ready():
 	setHighScoreLabel();
 	setButtonFocus();
 	
+	animation.play("show");
+	await animation.animation_finished;
+	animation.play("floating");
+	
 	SoundManager.addMusicToQueue("menu2");
 
 func setHighScoreLabel():

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bkxsts22chkay" path="res://scenes/ui/transition_effect.tscn" id="2_v76dd"]
 
 [node name="Global" type="Node"]
+process_mode = 3
 script = ExtResource("1_sriav")
 
 [node name="Transition" parent="." instance=ExtResource("2_v76dd")]

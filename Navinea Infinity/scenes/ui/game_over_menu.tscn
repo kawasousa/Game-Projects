@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv4ua640tlm6o"]
+[gd_scene load_steps=14 format=3 uid="uid://dv4ua640tlm6o"]
 
 [ext_resource type="Script" uid="uid://ciifqlebcn586" path="res://scripts/menus/game_over_menu.gd" id="1_rbyxm"]
 [ext_resource type="PackedScene" uid="uid://bjxtkdgqfrrrn" path="res://scenes/ui/start_menu.tscn" id="2_2410i"]
@@ -23,9 +23,90 @@ tracks/0/keys = {
 "values": [Vector2(0, -18.634), Vector2(0, 6.366)]
 }
 
+[sub_resource type="Animation" id="Animation_5d0qp"]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(363, 904), Vector2(363, 486)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../highScore:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(372, 1105), Vector2(372, 705)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NewHighScore:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 0.333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 385), Vector2(0, -15)]
+}
+
+[sub_resource type="Animation" id="Animation_rvyv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../VBoxContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(363, 904)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../highScore:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(372, 1105)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NewHighScore:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 385)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0i2ik"]
 _data = {
-&"floating": SubResource("Animation_e84m7")
+&"RESET": SubResource("Animation_rvyv1"),
+&"floating": SubResource("Animation_e84m7"),
+&"show": SubResource("Animation_5d0qp")
 }
 
 [sub_resource type="Theme" id="Theme_3g51q"]
@@ -53,7 +134,7 @@ root_node = NodePath("../CanvasRect")
 libraries = {
 &"": SubResource("AnimationLibrary_0i2ik")
 }
-autoplay = "floating"
+autoplay = "RESET"
 
 [node name="CanvasRect" type="TextureRect" parent="."]
 offset_top = -18.634
@@ -62,10 +143,10 @@ offset_bottom = 845.366
 texture = ExtResource("2_v5y55")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 363.0
-offset_top = 519.0
-offset_right = 614.0
-offset_bottom = 577.0
+offset_left = 355.0
+offset_top = 486.0
+offset_right = 606.0
+offset_bottom = 544.0
 theme_override_constants/separation = 20
 
 [node name="RestartButton" type="Button" parent="VBoxContainer"]
@@ -90,10 +171,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
-offset_top = 288.0
-offset_right = 92.0
-offset_bottom = 308.0
+offset_left = -101.0
+offset_top = 273.0
+offset_right = 99.0
+offset_bottom = 293.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -102,9 +183,9 @@ text = "[wave amp=30.0 freq=5.0 connected=1]recorde: 6969[/wave]"
 fit_content = true
 autowrap_mode = 0
 horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="NewHighScore" type="Node2D" parent="."]
+position = Vector2(0, 385)
 
 [node name="Username" type="LineEdit" parent="NewHighScore"]
 anchors_preset = 8
@@ -112,9 +193,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 355.0
+offset_left = 363.0
 offset_top = 756.0
-offset_right = 589.0
+offset_right = 597.0
 offset_bottom = 791.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -122,6 +203,7 @@ theme = SubResource("Theme_3g51q")
 theme_override_styles/focus = SubResource("StyleBoxFlat_eenbc")
 theme_override_styles/read_only = SubResource("StyleBoxFlat_okvk7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_01vsu")
+placeholder_text = "seu nome"
 alignment = 1
 max_length = 10
 expand_to_text_length = true
@@ -132,9 +214,9 @@ drag_and_drop_selection_enabled = false
 draw_control_chars = true
 
 [node name="setUsernameLabel" type="RichTextLabel" parent="NewHighScore"]
-offset_left = 345.0
+offset_left = 356.0
 offset_top = 803.0
-offset_right = 593.0
+offset_right = 604.0
 offset_bottom = 823.0
 theme_override_colors/default_color = Color(0.878431, 0.972549, 0.815686, 1)
 text = "pressione enter"

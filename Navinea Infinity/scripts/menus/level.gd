@@ -3,6 +3,7 @@ class_name Level
 
 @onready var background_material: ShaderMaterial = $background.material;
 @onready var asteroids_group: Node2D = $asteroids_group
+@onready var increaseSpeedTimer: Timer = $increaseSpeedTimer
 @onready var top_spawn_marker: Marker2D = $SpawnMarkers/TopSpawnMarker
 @onready var bottom_spawn_marker: Marker2D = $SpawnMarkers/BottomSpawnMarker
 
@@ -11,12 +12,17 @@ var asteroids: Array[PackedScene] = [
 	preload("res://scenes/entities/little_asteroid.tscn")
 ]
 var speed_factor : float = 1
-var can_spawn_enemies: bool = true
+var can_spawn_enemies: bool = false
 
 func _ready() -> void:
 	Global.level = self
 	Global.gameOver.connect(onGameOver);
-	Global.restart_game_values()
+	Global.restart_game_values();
+	
+	DialogueManager.show_dialogue_balloon(load("res://scripts/addons/dialogues/tutorial.dialogue"), "tutorial");
+	await DialogueManager.dialogue_ended
+	increaseSpeedTimer.start();
+	can_spawn_enemies = true;
 
 func _process(_delta) -> void:
 	move_backgroung()
@@ -49,3 +55,7 @@ func onGameOver():
 ## Move o fundo
 func move_backgroung() -> void:
 	background_material.set_shader_parameter("displacement", (Global.player.global_position.y - 432) * 0.0001)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		Global.pauseScene();

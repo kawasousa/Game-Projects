@@ -36,7 +36,6 @@ wait_time = 0.2
 autostart = true
 
 [node name="increaseSpeedTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="Canvas" type="Node2D" parent="."]
 
