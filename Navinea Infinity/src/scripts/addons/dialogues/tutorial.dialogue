@@ -1,0 +1,12 @@
+~ tutorial
+: ...
+: [shake rate=20 level=10]chamada de 0x445558[/shake]
+0x445558:: - ah, voce finalmente acordou!!
+0x445558:: - sendo assim, talvez a nave nao esteja tao danificada.
+0x445558:: - tente usar os botoes [wave amp=25 freq=5][color=#88c070]W A S D[/color][/wave] para se mover e [wave amp=25 freq=5][color=#88c070]K[/color][/wave] para atirar.
+0x445558:: - isso deve ser suficiente para prosseguir.
+0x445558:: - oh nao, asteroides!
+0x445558:: - nao seja atingido. retorno quando tiver novidades.
+0x445558:: ...
+: chamada encerrada
+=> END!

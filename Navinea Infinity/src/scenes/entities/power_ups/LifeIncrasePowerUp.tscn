@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvip6dn3vicqh"]
+
+[ext_resource type="Script" uid="uid://bgfttlxl62uym" path="res://src/scripts/entities/power_ups/life_incrase_powe_up.gd" id="1_m368m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m368m"]
+
+[node name="LifeIncrasePowerUp" type="Area2D"]
+position = Vector2(480, 400)
+script = ExtResource("1_m368m")
+metadata/_custom_type_script = "uid://bgfttlxl62uym"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m368m")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_left = -7.0
+offset_top = -12.0
+offset_right = 11.0
+offset_bottom = 8.0
+text = "<"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Notifier" type="VisibleOnScreenNotifier2D" parent="."]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw33rk4f8u20h"]
+
+[ext_resource type="Script" uid="uid://dnspwsnvw8adv" path="res://src/scripts/singletones/Global.gd" id="1_sriav"]
+[ext_resource type="PackedScene" uid="uid://bkxsts22chkay" path="res://src/scenes/ui/transition_effect.tscn" id="2_v76dd"]
+
+[node name="Global" type="Node"]
+process_mode = 3
+script = ExtResource("1_sriav")
+
+[node name="Transition" parent="." instance=ExtResource("2_v76dd")]

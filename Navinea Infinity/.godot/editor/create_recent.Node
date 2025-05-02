@@ -1,4 +1,7 @@
+VisibleOnScreenNotifier2D
 RichTextLabel
+CollisionShape2D
+LifeIncrasePowerUp
 Panel
 AnimationPlayer
 ColorRect
@@ -10,5 +13,3 @@ TextureRect
 AudioStreamPlayer
 Node
 Camera2D
-SubViewport
-SubViewportContainer

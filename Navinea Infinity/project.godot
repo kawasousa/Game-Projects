@@ -11,23 +11,23 @@ config_version=5
 [application]
 
 config/name="NavineaInfinity"
-run/main_scene="res://scenes/ui/start_menu.tscn"
+run/main_scene="res://src/scenes/ui/start_menu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.0313726, 0.0941176, 0.12549, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://idfqlgvu5mcy"
-config/icon="res://assets/sprites/entities/asteroid-1.png"
+config/icon="res://src/assets/sprites/entities/asteroid-1.png"
 
 [autoload]
 
-Global="*res://scenes/autoloads/global.tscn"
-SoundManager="*res://scenes/autoloads/soundManager.tscn"
-CrtFx="*res://scenes/ui/crt_efx.tscn"
+Global="*res://src/scenes/autoloads/global.tscn"
+SoundManager="*res://src/scenes/autoloads/soundManager.tscn"
+CrtFx="*res://src/scenes/ui/crt_efx.tscn"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 [dialogue_manager]
 
-runtime/balloon_path="res://scenes/ui/addons/dialogues/balloon.tscn"
+runtime/balloon_path="res://src/scenes/ui/addons/dialogues/balloon.tscn"
 
 [display]
 
@@ -45,7 +45,7 @@ import/blender/enabled=false
 
 [gui]
 
-theme/custom_font="res://assets/fonts/Early GameBoy.ttf"
+theme/custom_font="uid://bo7ehhwxixleb"
 
 [input]
 
@@ -101,14 +101,13 @@ shoot={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scripts/addons/dialogues/tutorial.dialogue")
+locale/translations_pot_files=PackedStringArray("res://src/scripts/addons/dialogues/tutorial.dialogue")
 
 [layer_names]
 
 2d_physics/layer_1="ship"
 2d_physics/layer_2="shoot"
-2d_physics/layer_3="asteroid-1"
-2d_physics/layer_4="asteroid-2"
+2d_physics/layer_3="enemy"
 
 [rendering]
 
