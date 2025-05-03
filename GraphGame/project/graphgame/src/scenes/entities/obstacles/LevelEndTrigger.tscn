@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://btdtc6tax6sl8"]
+
+[ext_resource type="Script" uid="uid://cyktuaswlimw1" path="res://src/scripts/entities/obstacle/level_end_trigger.gd" id="1_yns0i"]
+[ext_resource type="Texture2D" uid="uid://cl8mc4amkeuxe" path="res://src/assets/images/entities/obstacles/17.png" id="2_a0b85"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14at2"]
+radius = 32.0
+
+[node name="LevelEndTrigger" type="Area2D"]
+script = ExtResource("1_yns0i")
+metadata/_custom_type_script = "uid://cyktuaswlimw1"
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_14at2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("2_a0b85")
+flip_h = true
