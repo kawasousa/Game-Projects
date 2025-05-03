@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 Sound="*res://src/scenes/singletones/sound/Sound.tscn"
 Hud="*res://src/scenes/singletones/ui/HUD.tscn"
 Game="*res://src/scripts/singletones/game/game.gd"
+MouseHandler="*res://src/scenes/singletones/ui/Mouse.tscn"
 
 [display]
 
@@ -27,5 +28,6 @@ window/size/viewport_height=576
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
