@@ -13,18 +13,31 @@ config_version=5
 config/name="GraphGame"
 run/main_scene="uid://dqtmbk2g0fea6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+config/icon="uid://t7ttebn6kkex"
 
 [autoload]
 
 Sound="*res://src/scenes/singletones/sound/Sound.tscn"
-Hud="*res://src/scenes/singletones/ui/HUD.tscn"
 Game="*res://src/scripts/singletones/game/game.gd"
 MouseHandler="*res://src/scenes/singletones/ui/Mouse.tscn"
+Transition="*res://src/scenes/singletones/ui/Transition.tscn"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=576
+window/size/viewport_width=960
+window/size/viewport_height=896
+window/stretch/mode="viewport"
+
+[gui]
+
+theme/custom_font="uid://p8i887sbtnyc"
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Water"
+2d_physics/layer_3="Obstacle"
+2d_physics/layer_4="Terrain"
 
 [rendering]
 

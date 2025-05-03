@@ -1,7 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://lc73vi3no3ds"]
+[gd_scene load_steps=3 format=3 uid="uid://lc73vi3no3ds"]
 
 [ext_resource type="Script" uid="uid://dup1phb1g4jil" path="res://src/scripts/singletones/ui/hud.gd" id="1_73mis"]
+[ext_resource type="Texture2D" uid="uid://dhpw53bcyd56y" path="res://src/assets/images/ui/Ribbon_Yellow_3Slides.png" id="2_5rf6w"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_73mis")
 metadata/_custom_type_script = "uid://dup1phb1g4jil"
+
+[node name="Title" type="Node2D" parent="."]
+position = Vector2(480, 64)
+
+[node name="TitleTexture" type="NinePatchRect" parent="Title"]
+anchors_preset = -1
+anchor_left = 0.366667
+anchor_top = 0.0357143
+anchor_right = 0.586458
+anchor_bottom = 0.111607
+offset_left = -136.0
+offset_top = -28.0
+offset_right = 136.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5rf6w")
+patch_margin_left = 84
+patch_margin_top = 10
+patch_margin_right = 84
+patch_margin_bottom = 26
+
+[node name="TitleLabel" type="RichTextLabel" parent="Title"]
+offset_left = -480.0
+offset_top = -15.0
+offset_right = 480.0
+offset_bottom = 10.0
+theme_override_colors/default_color = Color(0.0862745, 0.109804, 0.180392, 1)
+theme_override_colors/font_shadow_color = Color(0.517337, 0.477196, 0.17946, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = -1
+bbcode_enabled = true
+text = "Nível"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1

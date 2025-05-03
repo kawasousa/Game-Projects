@@ -3,8 +3,10 @@ extends Node
 
 @onready var player: AudioStreamPlayer = $Player
 var queue: Array[String] = [];
+var lastMusic: String;
 
 func _ready() -> void:
+	set_process_mode(Node.PROCESS_MODE_ALWAYS);
 	player.finished.connect(_onPlayerFinished);
 
 ## Toca o efeito sonoro independente se algum outro já estiver tocando.
@@ -23,19 +25,19 @@ func playSFX(sfxName: String):
 ## Se playNow, inicia a música. Se não, adiciona na fila.
 func playMusic(musicName: String, playNow := false):
 	var music = ResourceLoader.load(musicName);
+	lastMusic = musicName;
 	
+	get_tree().create_tween().tween_property(player, "volume_db", -80, 1);
 	if playNow:
-		get_tree().create_tween().tween_property(player, "volume_db", -80, 1);
-		
 		player.set_stream(music);
 		player.play();
 		
-		get_tree().create_tween().tween_property(player, "volume_db", 0, 1);
 	elif not player.playing:
 		player.set_stream(music);
 		player.play();
 	else:
 		addToQueue(musicName);
+	get_tree().create_tween().tween_property(player, "volume_db", 0, 1);
 
 func addToQueue(musicName: String):
 	queue.append(musicName);
@@ -50,4 +52,6 @@ func CleanQueue():
 func _onPlayerFinished():
 	if queue.size() > 0:
 		var musicName = queue.pop_front();
-		playMusic(musicName);
+		playMusic(musicName)
+	else:
+		playMusic(lastMusic);

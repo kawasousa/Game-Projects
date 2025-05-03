@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://80l83xy1w8xv"]
+
+[ext_resource type="Script" uid="uid://bi1s0r52l0cgi" path="res://src/scripts/singletones/ui/transition.gd" id="1_fratl"]
+[ext_resource type="Shader" uid="uid://jusckmy8v1np" path="res://src/assets/shaders/trasition.gdshader" id="2_vix5a"]
+
+[sub_resource type="Animation" id="Animation_ka2a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bdf4y"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 4.43827),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcsdt"]
+_data = {
+&"RESET": SubResource("Animation_ka2a7"),
+&"fade": SubResource("Animation_bdf4y")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ka2a7"]
+shader = ExtResource("2_vix5a")
+shader_parameter/screen_width = 1920.0
+shader_parameter/screen_height = 1080.0
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/player = Vector2(0.5, 0.5)
+shader_parameter/progress = 0.0
+shader_parameter/pixel_size = 15.0
+shader_parameter/circle_size = 1.5
+shader_parameter/curtains = 1.0
+
+[node name="Transition" type="CanvasLayer"]
+script = ExtResource("1_fratl")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gcsdt")
+}
+
+[node name="Rect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ka2a7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
