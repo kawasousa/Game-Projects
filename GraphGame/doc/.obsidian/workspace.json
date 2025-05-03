@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Graph-GDD.md",
+                "file": "GraphGame-GDD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Graph-GDD"
+              "title": "GraphGame-GDD"
             }
           }
         ]
