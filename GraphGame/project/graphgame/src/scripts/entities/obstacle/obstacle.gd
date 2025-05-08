@@ -1,48 +1,74 @@
 extends Area2D
 class_name Obstacle
 
-signal hovered(isHovered: bool);
+signal chosen(obs: Obstacle);
+signal hovered;
 
-var connections: Array[Obstacle];
+@export var connections: Array[Obstacle] = [];
 @export var ID: int = 1;
-var isChosen: bool = true;
 @onready var animation: AnimationPlayer = $Animation
+@onready var mouseArea: Area2D = $MouseArea
+var isChosen: bool;
+var isMarked: bool;
+var isHovered: bool;
 
 
 func _ready() -> void:
 	self.area_entered.connect(onAreaEntered);
-	self.area_exited.connect(onAreaExited);
-	self.hovered.connect(onHovered);
+	mouseArea.area_entered.connect(onMouseAreaEntered);
+	mouseArea.area_exited.connect(onMouseAreaExited);
+	MouseHandler.click.connect(onMouseClick);
 
-func die():
+func destroy():
+	mouseArea.area_entered.disconnect(onMouseAreaEntered);
+	mouseArea.area_exited.disconnect(onMouseAreaExited);
 	animation.play_backwards("RESET");
 	await animation.animation_finished;
 	animation.play("die");
 	await animation.animation_finished;
 	queue_free();
 
-#region Signals
+func createConnectionsLine():
+	for obstacle in connections:
+		var line = Line2D.new();
+		line.points = [self.global_position,obstacle.global_position];
+		add_child(line);
 
+func choose():
+	isChosen = true;
+	isMarked = true;
+	for connection in connections:
+		connection.isMarked = true;
+	animation.play("floating");
+	chosen.emit(self);
+
+func unChoose():
+	animation.play_backwards("up");
+	await animation.animation_finished;
+	animation.play("RESET");
+	isChosen = false;
+	isMarked = false;
+
+#region Signals
 func onAreaEntered(area: Area2D):
 	if area is Obstacle and area.ID == ID:
 		if not connections.has(area):
 			connections.append(area);
-	elif area is Mouse:
-		self.hovered.emit(true);
 
-func onAreaExited(area: Area2D):
-	if area is Mouse:
-		self.hovered.emit(false);
-
-func onHovered(isHovered: bool):
-	if isHovered:
+func onMouseAreaEntered(area: Area2D):
+	if area is Mouse and not isChosen:
+		isHovered = true;
 		animation.play("up");
-		await animation.animation_finished;
-		animation.play("floating");
-		await animation.animation_finished;
-	else:
+		self.hovered.emit();
+
+func onMouseAreaExited(area: Area2D):
+	if area is Mouse and not isChosen:
+		isHovered = false;
 		animation.play_backwards("up");
 		await animation.animation_finished;
 		animation.play("RESET");
 
+func onMouseClick():
+	if isHovered and not isChosen:
+		choose();
 #endregion

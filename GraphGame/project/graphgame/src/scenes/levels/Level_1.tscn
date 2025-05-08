@@ -1,13 +1,18 @@
-[gd_scene load_steps=17 format=4 uid="uid://ghjxejqepw5a"]
+[gd_scene load_steps=23 format=4 uid="uid://ghjxejqepw5a"]
 
 [ext_resource type="Script" uid="uid://6j8i0nb4wlpn" path="res://src/scripts/levels/level.gd" id="1_5fpwa"]
 [ext_resource type="Texture2D" uid="uid://lpplikr4ynnx" path="res://src/assets/images/terrain/Water.png" id="2_u6cmo"]
 [ext_resource type="Texture2D" uid="uid://casvjnsm8hj7t" path="res://src/assets/images/terrain/Foam.png" id="3_yaldp"]
 [ext_resource type="Texture2D" uid="uid://54lso1114rfw" path="res://src/assets/images/terrain/Tilemap_Flat.png" id="4_ng07q"]
+[ext_resource type="Texture2D" uid="uid://cee3hvjag8yoq" path="res://src/assets/images/terrain/Rocks_03.png" id="4_uqqpe"]
 [ext_resource type="Texture2D" uid="uid://dkbxf3jr02uis" path="res://src/assets/images/terrain/Tilemap_Elevation.png" id="5_8lls8"]
-[ext_resource type="PackedScene" uid="uid://c8iftnmu67ivw" path="res://src/scenes/entities/obstacles/Obstacle.tscn" id="6_otwxg"]
-[ext_resource type="PackedScene" uid="uid://btdtc6tax6sl8" path="res://src/scenes/entities/obstacles/LevelEndTrigger.tscn" id="7_jqg60"]
+[ext_resource type="PackedScene" uid="uid://c8iftnmu67ivw" path="res://src/scenes/entities/obstacles/Cogumelo.tscn" id="6_otwxg"]
+[ext_resource type="PackedScene" uid="uid://ts46sfx8oj88" path="res://src/scenes/entities/player/Player.tscn" id="7_5fpwa"]
+[ext_resource type="PackedScene" uid="uid://btdtc6tax6sl8" path="res://src/scenes/entities/level_end_trigger/LevelEndTrigger.tscn" id="7_jqg60"]
 [ext_resource type="PackedScene" uid="uid://lc73vi3no3ds" path="res://src/scenes/singletones/ui/HUD.tscn" id="8_gn7hw"]
+[ext_resource type="Script" uid="uid://csoyhtjljpj3v" path="res://src/scripts/entities/graph/graph.gd" id="8_yaldp"]
+[ext_resource type="PackedScene" uid="uid://c54wv642utmvf" path="res://src/scenes/entities/obstacles/Abobora.tscn" id="10_ng07q"]
+[ext_resource type="PackedScene" uid="uid://rylwyp52spus" path="res://src/scenes/entities/obstacles/Arbusto.tscn" id="11_8lls8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s5f7"]
 texture = ExtResource("2_u6cmo")
@@ -88,9 +93,25 @@ texture_region_size = Vector2i(64, 64)
 2:1/animation_frame_7/duration = 1.0
 2:1/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukksc"]
+texture = ExtResource("4_uqqpe")
+texture_region_size = Vector2i(128, 128)
+0:0/animation_columns = 8
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/animation_frame_6/duration = 1.0
+0:0/animation_frame_7/duration = 1.0
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_gc2e7"]
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_s2opi")
+sources/1 = SubResource("TileSetAtlasSource_ukksc")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gc2e7"]
 texture = ExtResource("4_ng07q")
@@ -167,9 +188,10 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
-[node name="Level 1" type="Node2D"]
+[node name="Level 1" type="Node2D" node_paths=PackedStringArray("graphs")]
 script = ExtResource("1_5fpwa")
-title = "Nível Matriz 5x5"
+graphs = [NodePath("Board/Graph"), NodePath("Board/Graph2"), NodePath("Board/Graph3"), NodePath("Board/Graph4"), NodePath("Board/Graph5"), NodePath("Board/Graph6"), NodePath("Board/Graph7"), NodePath("Board/Graph8"), NodePath("Board/Graph9")]
+title = "  Herói da ilha  "
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -182,10 +204,10 @@ tile_set = SubResource("TileSet_dk7ci")
 [node name="Modulate" type="ColorRect" parent="Map"]
 offset_right = 960.0
 offset_bottom = 896.0
-color = Color(0.243137, 0.0705882, 0.341176, 0.352941)
+color = Color(0.191818, 0.0487778, 0.273038, 0.509804)
 
 [node name="Foam" type="TileMapLayer" parent="Map"]
-tile_map_data = PackedByteArray("AAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAAEAAYAAAABAAEAAAAFAAsAAAABAAIAAAAGAAsAAAABAAIAAAAHAAsAAAABAAIAAAAIAAsAAAABAAIAAAAJAAsAAAABAAIAAAAKAAsAAAABAAIAAAAEAAcAAAABAAIAAAADAAYAAAAAAAEAAAAEAAgAAAAAAAEAAAAEAAkAAAAAAAEAAAALAAkAAAACAAEAAAAKAAYAAAACAAEAAAAKAAcAAAACAAEAAAAKAAgAAAACAAEAAAAKAAkAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAAFAAoAAAABAAEAAAAGAAoAAAABAAEAAAAHAAoAAAABAAEAAAAIAAoAAAABAAEAAAAJAAoAAAABAAEAAAAKAAoAAAABAAEAAAAEAAYAAAABAAEAAAAFAAsAAAABAAIAAAAGAAsAAAABAAIAAAAHAAsAAAABAAIAAAAIAAsAAAABAAIAAAAJAAsAAAABAAIAAAAKAAsAAAABAAIAAAAEAAcAAAABAAIAAAADAAYAAAAAAAEAAAAEAAgAAAAAAAEAAAAEAAkAAAAAAAEAAAAKAAYAAAACAAEAAAAKAAcAAAACAAEAAAAKAAgAAAACAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAABAAEAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAACAAwAAQAAAAAAAAANAAoAAQAAAAAAAAAEAAoAAAAAAAEAAAALAAoAAAACAAEAAAABAAgAAQAAAAAAAAALAA0AAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_gc2e7")
 
 [node name="Rock" type="TileMapLayer" parent="Map"]
@@ -201,80 +223,137 @@ tile_set = SubResource("TileSet_tqvu1")
 [node name="LevelEndTrigger" parent="Board" instance=ExtResource("7_jqg60")]
 position = Vector2(671, 608)
 
-[node name="Obstacle" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Graph" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Cogumelo"), NodePath("Cogumelo2"), NodePath("Cogumelo3")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Cogumelo" parent="Board/Graph" instance=ExtResource("6_otwxg")]
 position = Vector2(352, 352)
 
-[node name="Obstacle2" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Cogumelo2" parent="Board/Graph" instance=ExtResource("6_otwxg")]
 position = Vector2(416, 352)
 
-[node name="Obstacle3" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(480, 352)
-
-[node name="Obstacle4" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(544, 352)
-
-[node name="Obstacle5" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Cogumelo3" parent="Board/Graph" instance=ExtResource("6_otwxg")]
 position = Vector2(352, 416)
 
-[node name="Obstacle6" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(416, 416)
+[node name="Graph2" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Abobora"), NodePath("Abobora2"), NodePath("Abobora3"), NodePath("Abobora4")]
+minimumVertices = 2
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
 
-[node name="Obstacle7" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(480, 416)
+[node name="Abobora" parent="Board/Graph2" instance=ExtResource("10_ng07q")]
+position = Vector2(480, 352)
 
-[node name="Obstacle8" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(544, 416)
+[node name="Abobora2" parent="Board/Graph2" instance=ExtResource("10_ng07q")]
+position = Vector2(544, 352)
 
-[node name="Obstacle9" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(352, 480)
-
-[node name="Obstacle10" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(416, 480)
-
-[node name="Obstacle11" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(480, 480)
-
-[node name="Obstacle12" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(544, 480)
-
-[node name="Obstacle13" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(352, 544)
-
-[node name="Obstacle14" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(416, 544)
-
-[node name="Obstacle15" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(480, 544)
-
-[node name="Obstacle16" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(544, 544)
-
-[node name="Obstacle17" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(352, 608)
-
-[node name="Obstacle18" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(416, 608)
-
-[node name="Obstacle19" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(480, 608)
-
-[node name="Obstacle20" parent="Board" instance=ExtResource("6_otwxg")]
-position = Vector2(544, 608)
-
-[node name="Obstacle21" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Abobora3" parent="Board/Graph2" instance=ExtResource("10_ng07q")]
 position = Vector2(608, 352)
 
-[node name="Obstacle22" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Abobora4" parent="Board/Graph2" instance=ExtResource("10_ng07q")]
 position = Vector2(608, 416)
 
-[node name="Obstacle23" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Graph3" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Abobora")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Abobora" parent="Board/Graph3" instance=ExtResource("10_ng07q")]
+position = Vector2(416, 416)
+
+[node name="Graph4" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Arbusto"), NodePath("Arbusto2"), NodePath("Arbusto3"), NodePath("Arbusto4")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Arbusto" parent="Board/Graph4" instance=ExtResource("11_8lls8")]
+position = Vector2(480, 416)
+
+[node name="Arbusto2" parent="Board/Graph4" instance=ExtResource("11_8lls8")]
+position = Vector2(480, 480)
+
+[node name="Arbusto3" parent="Board/Graph4" instance=ExtResource("11_8lls8")]
+position = Vector2(544, 480)
+
+[node name="Arbusto4" parent="Board/Graph4" instance=ExtResource("11_8lls8")]
+position = Vector2(416, 480)
+
+[node name="Graph5" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Cogumelo")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Cogumelo" parent="Board/Graph5" instance=ExtResource("6_otwxg")]
+position = Vector2(544, 416)
+
+[node name="Graph6" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Abobora")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Abobora" parent="Board/Graph6" instance=ExtResource("10_ng07q")]
+position = Vector2(352, 480)
+
+[node name="Graph7" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Cogumelo"), NodePath("Cogumelo2"), NodePath("Cogumelo3"), NodePath("Cogumelo4")]
+minimumVertices = 2
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Cogumelo" parent="Board/Graph7" instance=ExtResource("6_otwxg")]
 position = Vector2(608, 480)
 
-[node name="Obstacle24" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Cogumelo2" parent="Board/Graph7" instance=ExtResource("6_otwxg")]
 position = Vector2(608, 544)
 
-[node name="Obstacle25" parent="Board" instance=ExtResource("6_otwxg")]
+[node name="Cogumelo3" parent="Board/Graph7" instance=ExtResource("6_otwxg")]
+position = Vector2(544, 544)
+
+[node name="Cogumelo4" parent="Board/Graph7" instance=ExtResource("6_otwxg")]
+position = Vector2(480, 544)
+
+[node name="Graph8" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Cogumelo"), NodePath("Cogumelo2")]
+minimumVertices = 1
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Cogumelo" parent="Board/Graph8" instance=ExtResource("6_otwxg")]
+position = Vector2(352, 544)
+
+[node name="Cogumelo2" parent="Board/Graph8" instance=ExtResource("6_otwxg")]
+position = Vector2(352, 608)
+
+[node name="Graph9" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("8_yaldp")
+obstacles = [NodePath("Abobora"), NodePath("Abobora2"), NodePath("Abobora3"), NodePath("Abobora4"), NodePath("Abobora5")]
+minimumVertices = 2
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Abobora" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
+position = Vector2(416, 544)
+
+[node name="Abobora2" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
+position = Vector2(416, 608)
+
+[node name="Abobora3" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
+position = Vector2(480, 608)
+
+[node name="Abobora4" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
+position = Vector2(544, 608)
+
+[node name="Abobora5" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
 position = Vector2(608, 608)
+
+[node name="Player" parent="Board" instance=ExtResource("7_5fpwa")]
+position = Vector2(288, 352)
 
 [node name="Canvas" type="Node" parent="."]
 

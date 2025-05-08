@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8iftnmu67ivw"]
+
+[ext_resource type="Script" uid="uid://c3e6e3xhnat63" path="res://src/scripts/entities/obstacle/obstacle.gd" id="1_dqben"]
+[ext_resource type="Texture2D" uid="uid://daoka4swewfcl" path="res://src/assets/images/entities/obstacles/03.png" id="2_jl838"]
+
+[sub_resource type="Animation" id="Animation_euwvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u4e8n"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(2.15, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(2.15, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16)]
+}
+
+[sub_resource type="Animation" id="Animation_jl838"]
+resource_name = "floating"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(3.36358, 0.183011),
+"update": 0,
+"values": [Vector2(0, -20), Vector2(0, -12)]
+}
+
+[sub_resource type="Animation" id="Animation_ntucf"]
+resource_name = "up"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 2.63902),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 3), Vector2(0, 0), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0661109),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.75), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ntucf"]
+_data = {
+&"RESET": SubResource("Animation_euwvo"),
+&"die": SubResource("Animation_u4e8n"),
+&"floating": SubResource("Animation_jl838"),
+&"up": SubResource("Animation_ntucf")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jl838"]
+radius = 24.0
+
+[node name="Cogumelo" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_dqben")
+metadata/_custom_type_script = "uid://c3e6e3xhnat63"
+
+[node name="Collision" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -32, -8, -48, 8, -48, 8, -32, 32, -8, 48, -8, 48, 8, 32, 8, 8, 32, 8, 48, -8, 48, -8, 32, -32, 8, -48, 8, -48, -8, -32, -8)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_jl838")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ntucf")
+}
+
+[node name="MouseArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="MouseArea"]
+shape = SubResource("CircleShape2D_jl838")

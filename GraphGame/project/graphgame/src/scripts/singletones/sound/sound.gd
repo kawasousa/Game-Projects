@@ -37,7 +37,7 @@ func playMusic(musicName: String, playNow := false):
 		player.play();
 	else:
 		addToQueue(musicName);
-	get_tree().create_tween().tween_property(player, "volume_db", 0, 1);
+	get_tree().create_tween().tween_property(player, "volume_db", 24, 1);
 
 func addToQueue(musicName: String):
 	queue.append(musicName);
