@@ -7,6 +7,7 @@
 radius = 32.0
 
 [node name="LevelEndTrigger" type="Area2D"]
+collision_layer = 16
 script = ExtResource("1_yns0i")
 metadata/_custom_type_script = "uid://cyktuaswlimw1"
 

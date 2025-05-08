@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8iftnmu67ivw"]
+[gd_scene load_steps=9 format=3 uid="uid://rylwyp52spus"]
 
-[ext_resource type="Script" uid="uid://c3e6e3xhnat63" path="res://src/scripts/entities/obstacle/obstacle.gd" id="1_dqben"]
-[ext_resource type="Texture2D" uid="uid://daoka4swewfcl" path="res://src/assets/images/entities/obstacles/03.png" id="2_jl838"]
+[ext_resource type="Script" uid="uid://c3e6e3xhnat63" path="res://src/scripts/entities/obstacle/obstacle.gd" id="1_fwpst"]
+[ext_resource type="Texture2D" uid="uid://cu78qw8d1084e" path="res://src/assets/images/entities/obstacles/09.png" id="2_fwpst"]
 
 [sub_resource type="Animation" id="Animation_euwvo"]
 length = 0.001
@@ -110,18 +110,28 @@ _data = {
 &"up": SubResource("Animation_ntucf")
 }
 
-[node name="Obstacle" type="Area2D"]
-script = ExtResource("1_dqben")
+[sub_resource type="CircleShape2D" id="CircleShape2D_jl838"]
+radius = 24.0
+
+[node name="Arbusto" type="Area2D"]
+collision_layer = 4
+collision_mask = 5
+script = ExtResource("1_fwpst")
+ID = 3
 metadata/_custom_type_script = "uid://c3e6e3xhnat63"
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PackedVector2Array(-32, -32, -32, -48, 32, -48, 32, -32, 48, -32, 48, 32, 32, 32, 32, 48, -32, 48, -32, 32, -48, 32, -48, -32)
+polygon = PackedVector2Array(-8, -32, -8, -48, 8, -48, 8, -32, 32, -8, 48, -8, 48, 8, 32, 8, 8, 32, 8, 48, -8, 48, -8, 32, -32, 8, -48, 8, -48, -8, -32, -8)
 
 [node name="Sprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_jl838")
+texture = ExtResource("2_fwpst")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_ntucf")
 }
+
+[node name="MouseArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="MouseArea"]
+shape = SubResource("CircleShape2D_jl838")

@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=4 uid="uid://timyv8j2uphs"]
+[gd_scene load_steps=19 format=4 uid="uid://timyv8j2uphs"]
 
-[ext_resource type="PackedScene" uid="uid://c8iftnmu67ivw" path="res://src/scenes/entities/obstacles/Obstacle.tscn" id="1_flixt"]
-[ext_resource type="Script" uid="uid://6j8i0nb4wlpn" path="res://src/scripts/levels/level.gd" id="1_lyhb6"]
+[ext_resource type="Script" uid="uid://b1a3axot8mlv3" path="res://src/scripts/levels/tutorial.gd" id="1_2lv0i"]
 [ext_resource type="Texture2D" uid="uid://lpplikr4ynnx" path="res://src/assets/images/terrain/Water.png" id="2_k3m57"]
 [ext_resource type="Texture2D" uid="uid://54lso1114rfw" path="res://src/assets/images/terrain/Tilemap_Flat.png" id="3_dk7ci"]
 [ext_resource type="Texture2D" uid="uid://casvjnsm8hj7t" path="res://src/assets/images/terrain/Foam.png" id="3_s2opi"]
 [ext_resource type="Texture2D" uid="uid://dkbxf3jr02uis" path="res://src/assets/images/terrain/Tilemap_Elevation.png" id="4_s2opi"]
 [ext_resource type="PackedScene" uid="uid://lc73vi3no3ds" path="res://src/scenes/singletones/ui/HUD.tscn" id="7_gc2e7"]
-[ext_resource type="PackedScene" uid="uid://btdtc6tax6sl8" path="res://src/scenes/entities/obstacles/LevelEndTrigger.tscn" id="7_tgibt"]
+[ext_resource type="PackedScene" uid="uid://btdtc6tax6sl8" path="res://src/scenes/entities/level_end_trigger/LevelEndTrigger.tscn" id="7_tgibt"]
+[ext_resource type="Script" uid="uid://csoyhtjljpj3v" path="res://src/scripts/entities/graph/graph.gd" id="7_tqvu1"]
+[ext_resource type="PackedScene" uid="uid://c8iftnmu67ivw" path="res://src/scenes/entities/obstacles/Cogumelo.tscn" id="8_2lv0i"]
+[ext_resource type="PackedScene" uid="uid://ts46sfx8oj88" path="res://src/scenes/entities/player/Player.tscn" id="9_2lv0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s5f7"]
 texture = ExtResource("2_k3m57")
@@ -31,7 +33,8 @@ texture_region_size = Vector2i(192, 192)
 
 [sub_resource type="TileSet" id="TileSet_dk7ci"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 2
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_2s5f7")
 sources/1 = SubResource("TileSetAtlasSource_tqvu1")
 
@@ -167,9 +170,10 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
-[node name="Tutorial" type="Node2D"]
-script = ExtResource("1_lyhb6")
-title = "Nível Kawã Sousa de Lima"
+[node name="Tutorial" type="Node2D" node_paths=PackedStringArray("graphs")]
+script = ExtResource("1_2lv0i")
+graphs = [NodePath("Board/Graph")]
+title = "  Dois cogumelos  "
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -198,21 +202,44 @@ tile_set = SubResource("TileSet_tqvu1")
 
 [node name="Board" type="Node2D" parent="."]
 
-[node name="Obstacle" parent="Board" instance=ExtResource("1_flixt")]
-position = Vector2(384, 416)
-
-[node name="Obstacle2" parent="Board" instance=ExtResource("1_flixt")]
-position = Vector2(448, 416)
-
-[node name="Obstacle3" parent="Board" instance=ExtResource("1_flixt")]
-position = Vector2(512, 416)
-
-[node name="Obstacle4" parent="Board" instance=ExtResource("1_flixt")]
-position = Vector2(576, 416)
-
 [node name="LevelEndTrigger" parent="Board" instance=ExtResource("7_tgibt")]
 position = Vector2(672, 416)
+
+[node name="Graph" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
+script = ExtResource("7_tqvu1")
+obstacles = [NodePath("Cogumelo"), NodePath("Cogumelo2"), NodePath("Cogumelo3"), NodePath("Cogumelo4"), NodePath("Cogumelo5")]
+minimumVertices = 2
+metadata/_custom_type_script = "uid://csoyhtjljpj3v"
+
+[node name="Cogumelo" parent="Board/Graph" instance=ExtResource("8_2lv0i")]
+position = Vector2(416, 416)
+
+[node name="Cogumelo2" parent="Board/Graph" instance=ExtResource("8_2lv0i")]
+position = Vector2(352, 416)
+
+[node name="Cogumelo3" parent="Board/Graph" instance=ExtResource("8_2lv0i")]
+position = Vector2(480, 416)
+
+[node name="Cogumelo4" parent="Board/Graph" instance=ExtResource("8_2lv0i")]
+position = Vector2(544, 416)
+
+[node name="Cogumelo5" parent="Board/Graph" instance=ExtResource("8_2lv0i")]
+position = Vector2(608, 416)
+
+[node name="Player" parent="Board" instance=ExtResource("9_2lv0i")]
+position = Vector2(288, 416)
 
 [node name="Canvas" type="Node" parent="."]
 
 [node name="Hud" parent="Canvas" instance=ExtResource("7_gc2e7")]
+
+[node name="Errors" parent="Canvas/Hud" index="1"]
+position = Vector2(416, 608)
+
+[node name="Time" parent="Canvas/Hud" index="2"]
+visible = false
+
+[node name="Touchs" parent="Canvas/Hud" index="3"]
+position = Vector2(544, 608)
+
+[editable path="Canvas/Hud"]

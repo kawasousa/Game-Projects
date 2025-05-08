@@ -1,27 +1,31 @@
 extends Node2D
 class_name Level
 
-var time: int = 0;
+signal newError;
+signal graphHovered(minimumObstacles: int);
+
+var time: int = 1;
+var errors: int = 0;
 @onready var timer: Timer = $Timer
 @onready var board: Node2D = $Board
-var graphs: Array[Graph] = [];
-@export var title: String = "Nível BlaBlaBlaBlaBla";
+@export var graphs: Array[Graph] = [];
+@export var title: String = "Nível Normal";
 
 
 func _ready() -> void:
 	Game.emitLevelStarted(self);
-	Sound.playMusic(MusicDB.NIGHT_THEME_1, true);
+	Sound.playMusic(MusicDB.SEA_THEME_1, true);
+	
+	for graph in graphs:
+		graph.newError.connect(emitNewError);
+		graph.hovered.connect(func(obstacles: int): graphHovered.emit(obstacles));
 	
 	timer.start();
 	timer.timeout.connect(onTimerTimeout);
 
-func collectObstacles():
-	pass
+func emitNewError():
+	errors += 1;
+	newError.emit();
 
 func onTimerTimeout():
 	time += 1;
-
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		Game.changeSceneTo("res://src/scenes/levels/tutorial/Tutorial.tscn");
