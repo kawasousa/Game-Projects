@@ -9,7 +9,7 @@ var errors: int = 0;
 @onready var timer: Timer = $Timer
 @onready var board: Node2D = $Board
 @export var graphs: Array[Graph] = [];
-@export var title: String = "Nível Normal";
+@export var title: String = "  Nível Normal  ";
 
 
 func _ready() -> void:

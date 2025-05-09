@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=4 uid="uid://ghjxejqepw5a"]
 
-[ext_resource type="Script" path="res://src/scripts/levels/level.gd" id="1_5fpwa"]
+[ext_resource type="Script" uid="uid://6j8i0nb4wlpn" path="res://src/scripts/levels/level.gd" id="1_5fpwa"]
 [ext_resource type="Texture2D" uid="uid://lpplikr4ynnx" path="res://src/assets/images/terrain/Water.png" id="2_u6cmo"]
 [ext_resource type="Texture2D" uid="uid://casvjnsm8hj7t" path="res://src/assets/images/terrain/Foam.png" id="3_yaldp"]
 [ext_resource type="Texture2D" uid="uid://54lso1114rfw" path="res://src/assets/images/terrain/Tilemap_Flat.png" id="4_ng07q"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ts46sfx8oj88" path="res://src/scenes/entities/player/Player.tscn" id="7_5fpwa"]
 [ext_resource type="PackedScene" uid="uid://btdtc6tax6sl8" path="res://src/scenes/entities/level_end_trigger/LevelEndTrigger.tscn" id="7_jqg60"]
 [ext_resource type="PackedScene" uid="uid://lc73vi3no3ds" path="res://src/scenes/singletones/ui/HUD.tscn" id="8_gn7hw"]
-[ext_resource type="Script" path="res://src/scripts/entities/graph/graph.gd" id="8_yaldp"]
+[ext_resource type="Script" uid="uid://csoyhtjljpj3v" path="res://src/scripts/entities/graph/graph.gd" id="8_yaldp"]
 [ext_resource type="PackedScene" uid="uid://c54wv642utmvf" path="res://src/scenes/entities/obstacles/Abobora.tscn" id="10_ng07q"]
 [ext_resource type="PackedScene" uid="uid://rylwyp52spus" path="res://src/scenes/entities/obstacles/Arbusto.tscn" id="11_8lls8"]
 

@@ -121,6 +121,7 @@ ID = 3
 metadata/_custom_type_script = "uid://c3e6e3xhnat63"
 
 [node name="Collision" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, -32, -8, -48, 8, -48, 8, -32, 32, -8, 48, -8, 48, 8, 32, 8, 8, 32, 8, 48, -8, 48, -8, 32, -32, 8, -48, 8, -48, -8, -32, -8)
 
 [node name="Sprite" type="Sprite2D" parent="."]
