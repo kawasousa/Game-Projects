@@ -18,14 +18,19 @@ func _ready() -> void:
 	
 	for graph in graphs:
 		graph.newError.connect(emitNewError);
-		graph.hovered.connect(func(obstacles: int): graphHovered.emit(obstacles));
+		graph.hovered.connect(func(obstacles: int): graphHovered.emit(obstacles)); # propaga o sinal.
 	
 	timer.start();
 	timer.timeout.connect(onTimerTimeout);
 
+func reloadLevel():
+	Game.changeSceneTo(Game.currentLevel);
+
+#region Signals
 func emitNewError():
 	errors += 1;
 	newError.emit();
 
 func onTimerTimeout():
 	time += 1;
+#endregion

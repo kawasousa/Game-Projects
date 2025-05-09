@@ -189,8 +189,7 @@ sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
 [node name="Level 2" type="Node2D"]
-script = ExtResource("1_gf43e")
-title = "oi"
+script = ExtResource("1_qdmoa")
 
 [node name="Timer" type="Timer" parent="."]
 

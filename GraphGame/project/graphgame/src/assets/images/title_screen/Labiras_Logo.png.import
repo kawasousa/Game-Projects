@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnypyetvqe3ce"
-path="res://.godot/imported/20250508_2254_Velho Ferreiro Animado_remix_01jtsbymxyft4rxd2skbmtt0sq.png-d8539d1825a75ac3cda2200f8f2774b5.ctex"
+uid="uid://be0gto54mb44j"
+path="res://.godot/imported/Labiras_Logo.png-f271a09ada448d2116ef60cc9b5e0406.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/assets/images/title-screen/20250508_2254_Velho Ferreiro Animado_remix_01jtsbymxyft4rxd2skbmtt0sq.png"
-dest_files=["res://.godot/imported/20250508_2254_Velho Ferreiro Animado_remix_01jtsbymxyft4rxd2skbmtt0sq.png-d8539d1825a75ac3cda2200f8f2774b5.ctex"]
+source_file="res://src/assets/images/title_screen/Labiras_Logo.png"
+dest_files=["res://.godot/imported/Labiras_Logo.png-f271a09ada448d2116ef60cc9b5e0406.ctex"]
 
 [params]
 

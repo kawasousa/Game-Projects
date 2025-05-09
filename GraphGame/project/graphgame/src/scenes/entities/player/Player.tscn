@@ -211,6 +211,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 20
 motion_mode = 1
 script = ExtResource("1_11enx")
 metadata/_custom_type_script = "uid://dunod1uds3m3s"

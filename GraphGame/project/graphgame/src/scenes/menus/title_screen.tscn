@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://qa4ojapsedes"]
+
+[ext_resource type="Script" uid="uid://c0vvll5b2bj07" path="res://src/scripts/ttle-sreen/title_screen.gd" id="1_rnrfl"]
+[ext_resource type="Texture2D" uid="uid://yo4vqgrk8d4w" path="res://src/assets/images/title_screen/graph_crush_icon.png" id="2_rnrfl"]
+[ext_resource type="Texture2D" uid="uid://bbmtju1233g2y" path="res://src/assets/images/ui/Button_Blue_Pressed.png" id="3_3d23r"]
+[ext_resource type="Texture2D" uid="uid://b4we2hfrrppvh" path="res://src/assets/images/ui/Button_Blue.png" id="4_o8sap"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnrfl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hre17"]
+texture = ExtResource("3_3d23r")
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nmexg"]
+texture = ExtResource("4_o8sap")
+expand_margin_left = 16.0
+expand_margin_top = 16.0
+expand_margin_right = 16.0
+expand_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cy58x"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7u1i"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o8sap"]
+texture = ExtResource("3_3d23r")
+expand_margin_top = 12.0
+expand_margin_bottom = 24.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3d23r"]
+texture = ExtResource("4_o8sap")
+expand_margin_top = 16.0
+expand_margin_bottom = 32.0
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -960.0
+offset_bottom = -896.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_rnrfl")
+
+[node name="BG" type="TextureRect" parent="."]
+offset_right = 1091.0
+offset_bottom = 1024.0
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("2_rnrfl")
+
+[node name="Title" type="RichTextLabel" parent="BG"]
+layout_mode = 0
+offset_left = 405.318
+offset_top = 97.5454
+offset_right = 673.318
+offset_bottom = 225.545
+theme_override_colors/default_color = Color(0.254902, 0.121569, 0.0705882, 1)
+theme_override_font_sizes/normal_font_size = 55
+bbcode_enabled = true
+text = "Graph
+   Crush"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+offset_left = 520.0
+offset_top = 400.0
+offset_right = 680.0
+offset_bottom = 548.0
+theme_override_constants/separation = 64
+
+[node name="Start" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/align_to_largest_stylebox = 100
+theme_override_styles/focus = SubResource("StyleBoxTexture_rnrfl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hre17")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nmexg")
+text = "Novo Jogo"
+
+[node name="Exit" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.99558, 0.99558, 0.99558, 1)
+theme_override_colors/font_color = Color(0.581033, 0.581033, 0.581033, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxTexture_cy58x")
+theme_override_styles/hover = SubResource("StyleBoxTexture_n7u1i")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o8sap")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3d23r")
+text = "sair"

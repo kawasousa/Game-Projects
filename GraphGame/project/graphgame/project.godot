@@ -10,10 +10,15 @@ config_version=5
 
 [application]
 
-config/name="Fuja dos Goblins em inglês"
-run/main_scene="uid://ghjxejqepw5a"
+config/name="Graph Crush"
+run/main_scene="uid://qa4ojapsedes"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="uid://t7ttebn6kkex"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/image="uid://be0gto54mb44j"
+config/icon="uid://dv67wpl0gnybq"
+config/windows_native_icon="res://src/assets/images/title_screen/icon.ico"
 
 [autoload]
 
@@ -27,10 +32,12 @@ Transition="*res://src/scenes/singletones/ui/Transition.tscn"
 window/size/viewport_width=960
 window/size/viewport_height=896
 window/stretch/mode="viewport"
+mouse_cursor/custom_image="uid://t7ttebn6kkex"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [gui]
 
-theme/custom_font="uid://p8i887sbtnyc"
+theme/custom_font="uid://cvrp2lc53kvm3"
 
 [input]
 

@@ -57,7 +57,7 @@ Referências visuais:
 Descrição da direção de arte:
 Estilo de tipografia:
 **Fonte das artes**: Asset Pack "Tiny Swords", de Pixel Frog via ItchIo;
-**Fonte da tipografia**: Fonte Font+ Antiquity Print, por SciGho via ItchIo;
+**Fonte da tipografia**: Fonte Gotfridus, por GGBotNet via ItchIo;
 **Resoluções**: Tiles 64px/64px, Tela 960px/896px;
 # Interface e experiência de usuário
 Telas de interface de usuário:

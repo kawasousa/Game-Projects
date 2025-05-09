@@ -2,7 +2,9 @@ extends Area2D
 class_name LeveEndTrigger
 
 
+func _ready() -> void:
+	body_entered.connect(onBodyEntered);
+
 func onBodyEntered(body: Node2D):
-	print("um  node bateu")
 	if body is Player:
-		print("player finalizou a fase")
+		Game.goToNextLevel();

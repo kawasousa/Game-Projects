@@ -173,7 +173,7 @@ sources/3 = SubResource("TileSetAtlasSource_tgibt")
 [node name="Tutorial" type="Node2D" node_paths=PackedStringArray("graphs")]
 script = ExtResource("1_2lv0i")
 graphs = [NodePath("Board/Graph")]
-title = "  Dois cogumelos  "
+title = "  2 cogumelos  "
 
 [node name="Timer" type="Timer" parent="."]
 

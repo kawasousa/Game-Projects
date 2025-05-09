@@ -1,7 +1,21 @@
 extends Control
 
-func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://src/scenes/levels/tutorial/Tutorial.tscn")
+@onready var start: Button = $ButtonContainer/Start
+@onready var exit: Button = $ButtonContainer/Exit
 
-func _on_exit_pressed() -> void:
+
+func _ready() -> void:
+	start.pressed.connect(onStartPressed);
+	exit.pressed.connect(onExitPressed);
+	start.grab_focus();
+	Transition.fadeOut();
+	await Transition.finished;
+	Sound.playMusic(MusicDB.TRACK_4, true)
+
+func onStartPressed() -> void:
+	Game.goToNextLevel();
+
+func onExitPressed() -> void:
+	Transition.fadeIn();
+	await Transition.finished;
 	get_tree().quit()
