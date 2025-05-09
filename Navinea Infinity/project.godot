@@ -12,10 +12,10 @@ config_version=5
 
 config/name="NavineaInfinity"
 run/main_scene="res://src/scenes/ui/start_menu.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/bg_color=Color(0.0313726, 0.0941176, 0.12549, 1)
-boot_splash/fullsize=false
 boot_splash/image="uid://idfqlgvu5mcy"
+boot_splash/fullsize=false
 config/icon="res://src/assets/sprites/entities/asteroid-1.png"
 
 [autoload]

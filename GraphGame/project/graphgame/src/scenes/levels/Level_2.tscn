@@ -188,9 +188,8 @@ tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
-[node name="Level 2" type="Node2D" node_paths=PackedStringArray("graphs")]
+[node name="Level 2" type="Node2D"]
 script = ExtResource("1_gf43e")
-graphs = [NodePath("Board/Graph"), NodePath("Board/Graph2"), NodePath("Board/Graph3"), NodePath("Board/Graph4"), NodePath("Board/Graph5"), NodePath("Board/Graph6"), null]
 title = "oi"
 
 [node name="Timer" type="Timer" parent="."]
