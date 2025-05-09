@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dr1vbjhovp7g6"]
+[gd_scene load_steps=24 format=4 uid="uid://dr1vbjhovp7g6"]
 
 [ext_resource type="Script" uid="uid://c7qxy5doyqhue" path="res://src/scripts/levels/level_2.gd" id="1_qdmoa"]
 [ext_resource type="Texture2D" uid="uid://lpplikr4ynnx" path="res://src/assets/images/terrain/Water.png" id="2_mvuqv"]
@@ -113,13 +113,23 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_s2opi")
 sources/1 = SubResource("TileSetAtlasSource_ukksc")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_qdmoa"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gc2e7"]
 texture = ExtResource("5_3egd7")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
@@ -127,25 +137,37 @@ texture_region_size = Vector2i(64, 64)
 8:0/0 = 0
 9:0/0 = 0
 0:1/0 = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 2:1/0 = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 3:1/0 = 0
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 5:1/0 = 0
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
 0:2/0 = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 5:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
 8:2/0 = 0
 0:3/0 = 0
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 1:3/0 = 0
+1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 2:3/0 = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 3:3/0 = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_qdmoa")
 5:3/0 = 0
 6:3/0 = 0
 7:3/0 = 0
@@ -185,11 +207,14 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_tqvu1"]
 tile_size = Vector2i(64, 64)
+navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
-[node name="Level 2" type="Node2D"]
+[node name="Level 2" type="Node2D" node_paths=PackedStringArray("graphs")]
 script = ExtResource("1_qdmoa")
+graphs = [NodePath("Board/Graph"), NodePath("Board/Graph2"), NodePath("Board/Graph3"), NodePath("Board/Graph4"), NodePath("Board/Graph5"), NodePath("Board/Graph6"), NodePath("Board/Graph7")]
+title = "  O  ultimo caminho "
 
 [node name="Timer" type="Timer" parent="."]
 
@@ -320,9 +345,6 @@ position = Vector2(606, 539)
 [node name="Arbusto3" parent="Board/Graph6" instance=ExtResource("11_q2tur")]
 position = Vector2(606, 609)
 
-[node name="Player" parent="Board" instance=ExtResource("12_crvuv")]
-position = Vector2(288, 352)
-
 [node name="Graph7" type="Node2D" parent="Board" node_paths=PackedStringArray("obstacles")]
 script = ExtResource("8_y17jc")
 obstacles = [NodePath("Abobora"), NodePath("Abobora2"), NodePath("Abobora3"), NodePath("Abobora4")]
@@ -340,6 +362,10 @@ position = Vector2(416, 608)
 
 [node name="Abobora4" parent="Board/Graph7" instance=ExtResource("10_ggg8y")]
 position = Vector2(352, 608)
+
+[node name="Player" parent="." node_paths=PackedStringArray("levelEndTrigger") instance=ExtResource("12_crvuv")]
+position = Vector2(288, 352)
+levelEndTrigger = NodePath("../Board/LevelEndTrigger")
 
 [node name="Canvas" type="Node" parent="."]
 

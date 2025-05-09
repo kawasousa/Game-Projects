@@ -2,7 +2,7 @@ extends Node
 # Game global variables and functions
 
 signal LevelStarted(level: Level);
-signal LevelEnded;
+signal LevelOver;
 
 @onready var levels: Array[String] = [SceneDB.TUTORIAL, SceneDB.LEVEL_1, SceneDB.LEVEL_2, SceneDB.TITLE_SCREEN];
 var currentLevel: String;

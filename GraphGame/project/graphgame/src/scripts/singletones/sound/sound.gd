@@ -27,17 +27,18 @@ func playMusic(musicName: String, playNow := false):
 	var music = ResourceLoader.load(musicName);
 	lastMusic = musicName;
 	
-	get_tree().create_tween().tween_property(player, "volume_db", -80, 1);
 	if playNow:
+		player.set_volume_db(-80);
 		player.set_stream(music);
 		player.play();
+		
+		get_tree().create_tween().tween_property(player, "volume_db", 24, 1);
 		
 	elif not player.playing:
 		player.set_stream(music);
 		player.play();
 	else:
 		addToQueue(musicName);
-	get_tree().create_tween().tween_property(player, "volume_db", 24, 1);
 
 func addToQueue(musicName: String):
 	queue.append(musicName);

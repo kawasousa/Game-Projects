@@ -10,7 +10,7 @@ func _ready() -> void:
 	start.grab_focus();
 	Transition.fadeOut();
 	await Transition.finished;
-	Sound.playMusic(MusicDB.TRACK_4, true)
+	Sound.playMusic(MusicDB.TRACK_4)
 
 func onStartPressed() -> void:
 	Game.goToNextLevel();

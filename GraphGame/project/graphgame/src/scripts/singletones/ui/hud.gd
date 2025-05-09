@@ -15,18 +15,18 @@ func _ready() -> void:
 
 func setLevelStats(gameLevel: Level):
 	level = gameLevel;
-	titleLabel.text = level.title;
-	
 	updateLevelTitle();
 		
 	level.timer.timeout.connect(updateLevelTime);
 	level.newError.connect(updateLevelErrors);
 	level.graphHovered.connect(updateTouchLabel);
+	level.levelCleared.connect(updateLevelTitle);
 
 func updateLevelErrors():
 	errorLabel.text = str(level.errors);
 
 func updateLevelTitle():
+	titleLabel.text = level.title;
 	titleTexture.size.x = titleLabel.get_total_character_count() * 16; #magic number porque sim. Não questiona.
 	titleTexture.global_position.x = title.global_position.x - titleTexture.size.x/2;
 

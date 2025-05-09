@@ -225,3 +225,8 @@ sprite_frames = SubResource("SpriteFrames_jwgoi")
 animation = &"run"
 autoplay = "idle"
 frame_progress = 0.99801
+
+[node name="NavAgent" type="NavigationAgent2D" parent="."]
+path_desired_distance = 32.0
+path_postprocessing = 1
+avoidance_enabled = true

@@ -15,6 +15,7 @@ var isHovered: bool;
 
 func _ready() -> void:
 	self.area_entered.connect(onAreaEntered);
+	mouseArea.body_entered.connect(onBodyEntered);
 	mouseArea.area_entered.connect(onMouseAreaEntered);
 	mouseArea.area_exited.connect(onMouseAreaExited);
 	MouseHandler.click.connect(onMouseClick);
@@ -54,6 +55,10 @@ func onAreaEntered(area: Area2D):
 	if area is Obstacle and area.ID == ID:
 		if not connections.has(area):
 			connections.append(area);
+
+func onBodyEntered(body: Node2D):
+	if body is Player:
+		body.die()
 
 func onMouseAreaEntered(area: Area2D):
 	if area is Mouse and not isChosen:

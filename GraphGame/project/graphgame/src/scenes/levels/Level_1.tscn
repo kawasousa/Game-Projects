@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://ghjxejqepw5a"]
+[gd_scene load_steps=25 format=4 uid="uid://ghjxejqepw5a"]
 
 [ext_resource type="Script" uid="uid://6j8i0nb4wlpn" path="res://src/scripts/levels/level.gd" id="1_5fpwa"]
 [ext_resource type="Texture2D" uid="uid://lpplikr4ynnx" path="res://src/assets/images/terrain/Water.png" id="2_u6cmo"]
@@ -113,13 +113,29 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_s2opi")
 sources/1 = SubResource("TileSetAtlasSource_ukksc")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uqqpe"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ukksc"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gc2e7"]
 texture = ExtResource("4_ng07q")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 1:0/0 = 0
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 3:0/0 = 0
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 4:0/0 = 0
 5:0/0 = 0
 6:0/0 = 0
@@ -127,25 +143,37 @@ texture_region_size = Vector2i(64, 64)
 8:0/0 = 0
 9:0/0 = 0
 0:1/0 = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 2:1/0 = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 3:1/0 = 0
+3:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 5:1/0 = 0
 6:1/0 = 0
 7:1/0 = 0
 8:1/0 = 0
 0:2/0 = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 1:2/0 = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ukksc")
 2:2/0 = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 3:2/0 = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 5:2/0 = 0
 6:2/0 = 0
 7:2/0 = 0
 8:2/0 = 0
 0:3/0 = 0
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 1:3/0 = 0
+1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 2:3/0 = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 3:3/0 = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uqqpe")
 5:3/0 = 0
 6:3/0 = 0
 7:3/0 = 0
@@ -185,6 +213,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_tqvu1"]
 tile_size = Vector2i(64, 64)
+navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_gc2e7")
 sources/3 = SubResource("TileSetAtlasSource_tgibt")
 
@@ -352,8 +381,9 @@ position = Vector2(544, 608)
 [node name="Abobora5" parent="Board/Graph9" instance=ExtResource("10_ng07q")]
 position = Vector2(608, 608)
 
-[node name="Player" parent="Board" instance=ExtResource("7_5fpwa")]
+[node name="Player" parent="Board" node_paths=PackedStringArray("levelEndTrigger") instance=ExtResource("7_5fpwa")]
 position = Vector2(288, 352)
+levelEndTrigger = NodePath("../LevelEndTrigger")
 
 [node name="Canvas" type="Node" parent="."]
 

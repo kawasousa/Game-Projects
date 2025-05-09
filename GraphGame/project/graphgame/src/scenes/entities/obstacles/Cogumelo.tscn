@@ -134,4 +134,5 @@ libraries = {
 [node name="MouseArea" type="Area2D" parent="."]
 
 [node name="Collision" type="CollisionShape2D" parent="MouseArea"]
+visible = false
 shape = SubResource("CircleShape2D_jl838")

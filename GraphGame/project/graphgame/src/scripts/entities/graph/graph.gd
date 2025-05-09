@@ -3,6 +3,7 @@ class_name Graph
 
 signal newError;
 signal hovered(minimumObstacles: int);
+signal graphCleaned(graph: Graph);
 
 @export var obstacles: Array[Obstacle];
 @export var minimumVertices: int = 0;
@@ -18,6 +19,7 @@ func destroyObstacles():
 		obstacle.destroy();
 	chosenObstacles.clear();
 	obstacles.clear();
+	graphCleaned.emit(self);
 
 func resetObstacles():
 	for obstacle in obstacles:
